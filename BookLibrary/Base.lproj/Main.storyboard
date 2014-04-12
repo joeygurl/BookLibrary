@@ -314,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="797" y="492"/>
         </scene>
-        <!--Table View Controller - HOME-->
+        <!--Home View Controller - HOME-->
         <scene sceneID="Prs-oN-1J2">
             <objects>
-                <tableViewController id="CMp-KS-HaT" sceneMemberID="viewController">
+                <tableViewController id="CMp-KS-HaT" customClass="HomeViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4ii-AG-Ycr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,12 +329,21 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Kcy-aj-WW2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="7f0-cf-JpC" style="IBUITableViewCellStyleDefault" id="Kcy-aj-WW2">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kcy-aj-WW2" id="UGO-UA-pL5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7f0-cf-JpC">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -346,7 +355,7 @@
                     <navigationItem key="navigationItem" title="HOME" id="jQh-8B-JtG">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="d6K-Ra-sBa">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="push" id="08z-8V-eJG"/>
+                                <segue destination="vXZ-lx-hvc" kind="modal" modalTransitionStyle="flipHorizontal" id="08z-8V-eJG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

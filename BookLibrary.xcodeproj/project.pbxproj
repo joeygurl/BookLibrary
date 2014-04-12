@@ -23,6 +23,7 @@
 		E308DB3B18F986E6005AA4D7 /* dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E308DB3A18F986E6005AA4D7 /* dropdown.png */; };
 		E308DB4018F986FD005AA4D7 /* PasswordHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3D18F986FD005AA4D7 /* PasswordHelpViewController.m */; };
 		E308DB4118F986FD005AA4D7 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3F18F986FD005AA4D7 /* RegistrationViewController.m */; };
+		E3DBDAF318F9A3F000B7D2D7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		E308DB3D18F986FD005AA4D7 /* PasswordHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHelpViewController.m; sourceTree = "<group>"; };
 		E308DB3E18F986FD005AA4D7 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		E308DB3F18F986FD005AA4D7 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		E3DBDAF118F9A3F000B7D2D7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		E3DBDAF218F9A3F000B7D2D7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				E308DB1618F98618005AA4D7 /* Main.storyboard */,
 				E308DB1C18F98618005AA4D7 /* Images.xcassets */,
 				E308DB0B18F98618005AA4D7 /* Supporting Files */,
+				E3DBDAF118F9A3F000B7D2D7 /* HomeViewController.h */,
+				E3DBDAF218F9A3F000B7D2D7 /* HomeViewController.m */,
 			);
 			path = BookLibrary;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				E308DB1518F98618005AA4D7 /* AppDelegate.m in Sources */,
 				E308DB4118F986FD005AA4D7 /* RegistrationViewController.m in Sources */,
 				E308DB4018F986FD005AA4D7 /* PasswordHelpViewController.m in Sources */,
+				E3DBDAF318F9A3F000B7D2D7 /* HomeViewController.m in Sources */,
 				E308DB1118F98618005AA4D7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +480,7 @@
 				E308DB3518F98618005AA4D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E308DB3618F98618005AA4D7 /* Build configuration list for PBXNativeTarget "BookLibraryTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +489,7 @@
 				E308DB3818F98618005AA4D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
