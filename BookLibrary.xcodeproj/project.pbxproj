@@ -21,9 +21,13 @@
 		E308DB2E18F98618005AA4D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E308DB2C18F98618005AA4D7 /* InfoPlist.strings */; };
 		E308DB3018F98618005AA4D7 /* BookLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB2F18F98618005AA4D7 /* BookLibraryTests.m */; };
 		E308DB3B18F986E6005AA4D7 /* dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E308DB3A18F986E6005AA4D7 /* dropdown.png */; };
-		E308DB4018F986FD005AA4D7 /* PasswordHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3D18F986FD005AA4D7 /* PasswordHelpViewController.m */; };
-		E308DB4118F986FD005AA4D7 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3F18F986FD005AA4D7 /* RegistrationViewController.m */; };
-		E3DBDAF318F9A3F000B7D2D7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* HomeViewController.m */; };
+		E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */; };
+		E308DB4118F986FD005AA4D7 /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3F18F986FD005AA4D7 /* Registration.m */; };
+		E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */; };
+		E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2C18FCDD99002C110D /* MyBookSearch.m */; };
+		E38ACB3018FCE02C002C110D /* GoogleBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */; };
+		E38ACB3318FCE707002C110D /* MyBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB3218FCE707002C110D /* MyBookDetails.m */; };
+		E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* Home.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +59,20 @@
 		E308DB2D18F98618005AA4D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E308DB2F18F98618005AA4D7 /* BookLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookLibraryTests.m; sourceTree = "<group>"; };
 		E308DB3A18F986E6005AA4D7 /* dropdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown.png; sourceTree = "<group>"; };
-		E308DB3C18F986FD005AA4D7 /* PasswordHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHelpViewController.h; sourceTree = "<group>"; };
-		E308DB3D18F986FD005AA4D7 /* PasswordHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHelpViewController.m; sourceTree = "<group>"; };
-		E308DB3E18F986FD005AA4D7 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
-		E308DB3F18F986FD005AA4D7 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
-		E3DBDAF118F9A3F000B7D2D7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		E3DBDAF218F9A3F000B7D2D7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		E308DB3C18F986FD005AA4D7 /* PasswordHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHelp.h; sourceTree = "<group>"; };
+		E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHelp.m; sourceTree = "<group>"; };
+		E308DB3E18F986FD005AA4D7 /* Registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registration.h; sourceTree = "<group>"; };
+		E308DB3F18F986FD005AA4D7 /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
+		E38ACB2718FCDB48002C110D /* GoogleBooksSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleBooksSearch.h; sourceTree = "<group>"; };
+		E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleBooksSearch.m; sourceTree = "<group>"; };
+		E38ACB2B18FCDD99002C110D /* MyBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookSearch.h; sourceTree = "<group>"; };
+		E38ACB2C18FCDD99002C110D /* MyBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookSearch.m; sourceTree = "<group>"; };
+		E38ACB2E18FCE02C002C110D /* GoogleBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleBookDetails.h; sourceTree = "<group>"; };
+		E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleBookDetails.m; sourceTree = "<group>"; };
+		E38ACB3118FCE707002C110D /* MyBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookDetails.h; sourceTree = "<group>"; };
+		E38ACB3218FCE707002C110D /* MyBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookDetails.m; sourceTree = "<group>"; };
+		E3DBDAF118F9A3F000B7D2D7 /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
+		E3DBDAF218F9A3F000B7D2D7 /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,18 +132,13 @@
 		E308DB0A18F98618005AA4D7 /* BookLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				E308DB3C18F986FD005AA4D7 /* PasswordHelpViewController.h */,
-				E308DB3D18F986FD005AA4D7 /* PasswordHelpViewController.m */,
-				E308DB3E18F986FD005AA4D7 /* RegistrationViewController.h */,
-				E308DB3F18F986FD005AA4D7 /* RegistrationViewController.m */,
+				E38ACB2A18FCDBD3002C110D /* ViewControllers */,
 				E308DB3918F986E6005AA4D7 /* graphics */,
 				E308DB1318F98618005AA4D7 /* AppDelegate.h */,
 				E308DB1418F98618005AA4D7 /* AppDelegate.m */,
 				E308DB1618F98618005AA4D7 /* Main.storyboard */,
 				E308DB1C18F98618005AA4D7 /* Images.xcassets */,
 				E308DB0B18F98618005AA4D7 /* Supporting Files */,
-				E3DBDAF118F9A3F000B7D2D7 /* HomeViewController.h */,
-				E3DBDAF218F9A3F000B7D2D7 /* HomeViewController.m */,
 			);
 			path = BookLibrary;
 			sourceTree = "<group>";
@@ -171,6 +178,27 @@
 				E308DB3A18F986E6005AA4D7 /* dropdown.png */,
 			);
 			path = graphics;
+			sourceTree = "<group>";
+		};
+		E38ACB2A18FCDBD3002C110D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E308DB3C18F986FD005AA4D7 /* PasswordHelp.h */,
+				E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */,
+				E308DB3E18F986FD005AA4D7 /* Registration.h */,
+				E308DB3F18F986FD005AA4D7 /* Registration.m */,
+				E3DBDAF118F9A3F000B7D2D7 /* Home.h */,
+				E3DBDAF218F9A3F000B7D2D7 /* Home.m */,
+				E38ACB2718FCDB48002C110D /* GoogleBooksSearch.h */,
+				E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */,
+				E38ACB2B18FCDD99002C110D /* MyBookSearch.h */,
+				E38ACB2C18FCDD99002C110D /* MyBookSearch.m */,
+				E38ACB2E18FCE02C002C110D /* GoogleBookDetails.h */,
+				E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */,
+				E38ACB3118FCE707002C110D /* MyBookDetails.h */,
+				E38ACB3218FCE707002C110D /* MyBookDetails.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E308DB1518F98618005AA4D7 /* AppDelegate.m in Sources */,
-				E308DB4118F986FD005AA4D7 /* RegistrationViewController.m in Sources */,
-				E308DB4018F986FD005AA4D7 /* PasswordHelpViewController.m in Sources */,
-				E3DBDAF318F9A3F000B7D2D7 /* HomeViewController.m in Sources */,
+				E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */,
+				E308DB4118F986FD005AA4D7 /* Registration.m in Sources */,
+				E38ACB3318FCE707002C110D /* MyBookDetails.m in Sources */,
+				E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */,
+				E38ACB3018FCE02C002C110D /* GoogleBookDetails.m in Sources */,
+				E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */,
+				E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */,
 				E308DB1118F98618005AA4D7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
