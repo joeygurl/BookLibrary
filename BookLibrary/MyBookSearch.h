@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Book.h"
 
-@interface MyBookSearch : UITableViewController
+@interface MyBookSearch : UITableViewController<UISearchBarDelegate,UISearchDisplayDelegate>
 
 @end

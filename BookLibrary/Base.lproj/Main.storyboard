@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -687,30 +687,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="oBX-EZ-Smq">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="0vh-1w-tGU">
+                            <rect key="frame" x="0.0" y="64" width="320" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Author</string>
+                            </scopeButtonTitles>
                             <connections>
-                                <outlet property="delegate" destination="IgA-Rf-vmP" id="mPl-uO-KHr"/>
+                                <outlet property="delegate" destination="IgA-Rf-vmP" id="POz-LG-9VE"/>
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="c8p-hd-5VV" detailTextLabel="YYI-sX-tLL" style="IBUITableViewCellStyleSubtitle" id="aoP-PQ-3Jn">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="7CP-6M-Hh8" detailTextLabel="X5X-Jw-MBh" style="IBUITableViewCellStyleSubtitle" id="aoP-PQ-3Jn">
+                                <rect key="frame" x="0.0" y="174" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aoP-PQ-3Jn" id="10v-T3-DY9">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c8p-hd-5VV">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7CP-6M-Hh8">
                                             <rect key="frame" x="15" y="3" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YYI-sX-tLL">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5X-Jw-MBh">
                                             <rect key="frame" x="15" y="25" width="43" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -719,9 +723,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Bcm-kq-jm6" kind="push" id="uuW-yD-07M"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -737,17 +738,33 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="xin-RO-Qjt" id="QCU-QL-Ap2"/>
+                        <outlet property="searchDisplayController" destination="9ba-1e-nnc" id="PTV-HN-3wE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O09-cN-Xjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="xin-RO-Qjt">
                     <connections>
                         <outlet property="delegate" destination="IgA-Rf-vmP" id="VRh-4f-tSf"/>
-                        <outlet property="searchBar" destination="oBX-EZ-Smq" id="0Mu-Jg-WAp"/>
                         <outlet property="searchContentsController" destination="IgA-Rf-vmP" id="3H4-d1-jWD"/>
                         <outlet property="searchResultsDataSource" destination="IgA-Rf-vmP" id="fZ0-dP-L8U"/>
                         <outlet property="searchResultsDelegate" destination="IgA-Rf-vmP" id="azh-wo-1sO"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="jyC-un-6Ig">
+                    <connections>
+                        <outlet property="delegate" destination="IgA-Rf-vmP" id="qNU-e3-y67"/>
+                        <outlet property="searchContentsController" destination="IgA-Rf-vmP" id="pGu-wD-sVU"/>
+                        <outlet property="searchResultsDataSource" destination="IgA-Rf-vmP" id="TMD-4E-awL"/>
+                        <outlet property="searchResultsDelegate" destination="IgA-Rf-vmP" id="tF5-J9-uJn"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="9ba-1e-nnc">
+                    <connections>
+                        <outlet property="delegate" destination="IgA-Rf-vmP" id="HyD-Ks-aTs"/>
+                        <outlet property="searchBar" destination="0vh-1w-tGU" id="gXD-Vh-dos"/>
+                        <outlet property="searchContentsController" destination="IgA-Rf-vmP" id="8Uv-Zx-irO"/>
+                        <outlet property="searchResultsDataSource" destination="IgA-Rf-vmP" id="rSv-Kg-a0a"/>
+                        <outlet property="searchResultsDelegate" destination="IgA-Rf-vmP" id="Nij-qM-svK"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -838,6 +855,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Book Details" id="Mma-ao-t8L"/>
+                    <navigationItem key="navigationItem" id="zbX-bT-uwH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxJ-5i-f8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1184,7 +1202,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eBq-ap-6U5"/>
-        <segue reference="d8k-Ri-2Sq"/>
+        <segue reference="nCJ-oF-r7S"/>
     </inferredMetricsTieBreakers>
 </document>

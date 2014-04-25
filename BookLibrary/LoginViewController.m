@@ -47,7 +47,11 @@
 */
 
 - (IBAction)SignInClick:(id)sender {
-    NSInteger success = 0;
+    //Set to 1 until log in server code is completed.
+    NSInteger success = 1;
+    
+    //Uncomment this block once login server code is completed
+    /*
     @try {
         
         if([[self.txtEmail text] isEqualToString:@""] || [[self.txtPassword text] isEqualToString:@""] ) {
@@ -115,6 +119,7 @@
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Sign in Failed." :@"Error!" :0];
     }
+     */
     if (success) {
         [self performSegueWithIdentifier:@"login_success" sender:self];
     }
