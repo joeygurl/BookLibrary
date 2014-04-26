@@ -30,6 +30,10 @@
 		E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2C18FCDD99002C110D /* MyBookSearch.m */; };
 		E38ACB3018FCE02C002C110D /* GoogleBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */; };
 		E38ACB3318FCE707002C110D /* MyBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB3218FCE707002C110D /* MyBookDetails.m */; };
+		E3B4AEBA190BFC6A00F1BD18 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEB9190BFC6A00F1BD18 /* Account.m */; };
+		E3B4AEBD190BFCDB00F1BD18 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEBC190BFCDB00F1BD18 /* User.m */; };
+		E3B4AEC0190C022800F1BD18 /* BookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEBF190C022800F1BD18 /* BookManager.m */; };
+		E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEC2190C05C000F1BD18 /* RESTService.m */; };
 		E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* Home.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,14 @@
 		E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleBookDetails.m; sourceTree = "<group>"; };
 		E38ACB3118FCE707002C110D /* MyBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookDetails.h; sourceTree = "<group>"; };
 		E38ACB3218FCE707002C110D /* MyBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookDetails.m; sourceTree = "<group>"; };
+		E3B4AEB8190BFC6A00F1BD18 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = RESTHelpers/Account.h; sourceTree = "<group>"; };
+		E3B4AEB9190BFC6A00F1BD18 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = RESTHelpers/Account.m; sourceTree = "<group>"; };
+		E3B4AEBB190BFCDB00F1BD18 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
+		E3B4AEBC190BFCDB00F1BD18 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
+		E3B4AEBE190C022800F1BD18 /* BookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookManager.h; path = RESTHelpers/BookManager.h; sourceTree = "<group>"; };
+		E3B4AEBF190C022800F1BD18 /* BookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookManager.m; path = RESTHelpers/BookManager.m; sourceTree = "<group>"; };
+		E3B4AEC1190C05C000F1BD18 /* RESTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESTService.h; path = RESTHelpers/RESTService.h; sourceTree = "<group>"; };
+		E3B4AEC2190C05C000F1BD18 /* RESTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTService.m; path = RESTHelpers/RESTService.m; sourceTree = "<group>"; };
 		E3DBDAF118F9A3F000B7D2D7 /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
 		E3DBDAF218F9A3F000B7D2D7 /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +153,7 @@
 		E308DB0A18F98618005AA4D7 /* BookLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				E3B4AEB7190BFBAF00F1BD18 /* RESTHelpers */,
 				E3656A5919055F0C0084A562 /* Models */,
 				E38ACB2A18FCDBD3002C110D /* Controllers */,
 				E308DB3918F986E6005AA4D7 /* graphics */,
@@ -195,6 +208,8 @@
 			children = (
 				E3656A5C1905642A0084A562 /* Book.h */,
 				E3656A5D1905642A0084A562 /* Book.m */,
+				E3B4AEBB190BFCDB00F1BD18 /* User.h */,
+				E3B4AEBC190BFCDB00F1BD18 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -222,6 +237,19 @@
 				E38ACB3218FCE707002C110D /* MyBookDetails.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E3B4AEB7190BFBAF00F1BD18 /* RESTHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				E3B4AEB8190BFC6A00F1BD18 /* Account.h */,
+				E3B4AEB9190BFC6A00F1BD18 /* Account.m */,
+				E3B4AEBE190C022800F1BD18 /* BookManager.h */,
+				E3B4AEBF190C022800F1BD18 /* BookManager.m */,
+				E3B4AEC1190C05C000F1BD18 /* RESTService.h */,
+				E3B4AEC2190C05C000F1BD18 /* RESTService.m */,
+			);
+			name = RESTHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,18 +350,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B4AEC0190C022800F1BD18 /* BookManager.m in Sources */,
 				E308DB1518F98618005AA4D7 /* AppDelegate.m in Sources */,
 				E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */,
 				E308DB4118F986FD005AA4D7 /* Registration.m in Sources */,
 				E38ACB3318FCE707002C110D /* MyBookDetails.m in Sources */,
 				E3656A5E1905642A0084A562 /* Book.m in Sources */,
 				E3656A571904826C0084A562 /* LoginViewController.m in Sources */,
+				E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */,
 				E3656A581904826C0084A562 /* MyLibraryViewController.m in Sources */,
 				E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */,
+				E3B4AEBD190BFCDB00F1BD18 /* User.m in Sources */,
 				E38ACB3018FCE02C002C110D /* GoogleBookDetails.m in Sources */,
 				E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */,
 				E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */,
 				E308DB1118F98618005AA4D7 /* main.m in Sources */,
+				E3B4AEBA190BFC6A00F1BD18 /* Account.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

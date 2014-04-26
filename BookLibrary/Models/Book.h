@@ -12,5 +12,7 @@
 
 @property NSString *title;
 @property NSString *author;
+@property int rating;
+@property NSMutableArray *reviews;
 
 @end
