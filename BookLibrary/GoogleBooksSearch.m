@@ -11,10 +11,12 @@
 @interface GoogleBooksSearch ()
 {
     NSMutableArray *_bookArray;
+    BookManager *_bookManager;
 }
 @end
 
 @implementation GoogleBooksSearch
+NSArray *filteredBookArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,13 +37,24 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    _bookArray = [[NSMutableArray alloc] initWithObjects: @"Book1", @"Book2",nil];
+    //_bookArray = [[NSMutableArray alloc] initWithObjects: @"Book1", @"Book2",nil];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.searchDisplayController.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -63,9 +76,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    cell.textLabel.text = [_bookArray objectAtIndex:indexPath.row];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    
+    Book *book = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView && _bookArray != nil) {
+        book = [_bookArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = book.title;
+        cell.detailTextLabel.text = book.author;
+    }
+    
+
     
     return cell;
 }
@@ -77,6 +101,14 @@
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
+}
+
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    _bookArray = [_bookManager getBooks:searchString];
+    
+    return YES;
 }
 
 /*
@@ -108,7 +140,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -116,7 +148,8 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+
 }
-*/
+
 
 @end

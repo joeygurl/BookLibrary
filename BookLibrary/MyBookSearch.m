@@ -7,6 +7,8 @@
 //
 
 #import "MyBookSearch.h"
+#import "BookDetails.h"
+#import "BookDetailTabController.h"
 
 @interface MyBookSearch ()
 {
@@ -33,8 +35,6 @@ NSArray *filteredBookArray;
 {
     [super viewDidLoad];
     
-    [self initializeButtonIconsOnRightNavBar];
-    
     [self initializeBookList];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,36 +60,6 @@ NSArray *filteredBookArray;
     _myBookArray = [[NSMutableArray alloc] init];
     [_myBookArray addObject:book1];
     [_myBookArray addObject:book2];
-}
-- (void)initializeButtonIconsOnRightNavBar
-{
-
-//    UIBarButtonItem	*searchBarButton = [[UIBarButtonItem alloc]
-//                                        initWithTitle:@"Search"
-//                                        style:UIBarButtonItemStylePlain
-//                                        target:self
-//                                        action:@selector(showSearchBar)];
-//    
-//    UIBarButtonItem	*addBarButton = [[UIBarButtonItem alloc]
-//                                        initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:nil];
-//    NSMutableArray *barButtons = [[NSMutableArray alloc] initWithCapacity:2];
-//   [barButtons addObject:addBarButton];
-//    
-//    self.navigationItem.rightBarButtonItems = barButtons;
-    
-//    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    searchBar.showsCancelButton = false;
-//    searchBar.delegate = self;
-//    
-//    UISearchDisplayController  *searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-//    searchDisplayController.delegate = self;
-//    searchDisplayController.searchResultsDataSource = self;
-//    searchDisplayController.searchResultsDelegate = nil;
-//    
-//    searchDisplayController.displaysSearchBarInNavigationBar = true;
-    
-    
-    
 }
 
 
@@ -121,6 +91,7 @@ NSArray *filteredBookArray;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
 
+  
     Book *book = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         book = [filteredBookArray objectAtIndex:indexPath.row];
@@ -155,6 +126,7 @@ NSArray *filteredBookArray;
     filteredBookArray = [ _myBookArray filteredArrayUsingPredicate:resultPredicate];
 }
 
+
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterContentForSearchText:searchString
@@ -165,37 +137,6 @@ NSArray *filteredBookArray;
     return YES;
 }
 
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -203,7 +144,16 @@ NSArray *filteredBookArray;
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"myBookDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Book *myBookDetail = [_myBookArray objectAtIndex:indexPath.row];
+        BookDetailTabController *bookDetailTabController = segue.destinationViewController;
+        bookDetailTabController.bookDetail=myBookDetail;
+        bookDetailTabController.isMyBook = YES;
+    }
 }
-*/
+
+-(IBAction)unwindMyBookSearchController:(UIStoryboardSegue *)unwindSegue {}
+
 
 @end

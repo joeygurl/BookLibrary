@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Book.h"
+#import "BookManager.h"
 
-@interface GoogleBooksSearch : UITableViewController
+@interface GoogleBooksSearch : UITableViewController<UISearchBarDelegate>
 
 @end

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MyBookDetailsTab configureView]:MyBookDetailsTab.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.viewControllers[0]">
+            </PersistentString>
+            <PersistentString
+               value = "self.viewControllers[4]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MyBookDetails configureView]:MyBookDetails.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "myBookDetailsTab.labelString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

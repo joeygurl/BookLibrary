@@ -261,6 +261,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="JHS-1H-hJd" appends="YES" id="S9Q-8u-kR5"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="checkEmailLabel" destination="HmE-wm-ovg" id="eIQ-Zs-7ao"/>
@@ -270,6 +274,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSP-1M-zP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="JHS-1H-hJd"/>
             </objects>
             <point key="canvasLocation" x="-711" y="52"/>
         </scene>
@@ -458,7 +463,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IgA-Rf-vmP" kind="push" identifier="my" id="nCJ-oF-r7S"/>
+                                            <segue destination="IgA-Rf-vmP" kind="push" identifier="my" id="YAD-9N-Vq5"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bx0-0r-DT2" style="IBUITableViewCellStyleDefault" id="9hq-ix-ZWu">
@@ -700,7 +705,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="7CP-6M-Hh8" detailTextLabel="X5X-Jw-MBh" style="IBUITableViewCellStyleSubtitle" id="aoP-PQ-3Jn">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="7CP-6M-Hh8" detailTextLabel="MHK-TP-HuG" style="IBUITableViewCellStyleSubtitle" id="aoP-PQ-3Jn">
                                 <rect key="frame" x="0.0" y="174" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aoP-PQ-3Jn" id="10v-T3-DY9">
@@ -714,7 +719,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X5X-Jw-MBh">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MHK-TP-HuG">
                                             <rect key="frame" x="15" y="25" width="43" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -723,6 +728,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Bcm-kq-jm6" kind="push" identifier="myBookDetails" id="gMR-8c-Dbv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -733,7 +741,7 @@
                     <navigationItem key="navigationItem" title="My Books" id="J3w-7L-xhE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0v5-bH-Lmh">
                             <connections>
-                                <segue destination="sMH-GY-FMr" kind="push" id="Pf0-hb-KeG"/>
+                                <segue destination="sMH-GY-FMr" kind="modal" identifier="addBook" id="Pf0-hb-KeG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -770,10 +778,10 @@
             </objects>
             <point key="canvasLocation" x="1033" y="-721"/>
         </scene>
-        <!--View Controller - Book Details-->
+        <!--Book Details - Book Details-->
         <scene sceneID="Kd2-v4-4vn">
             <objects>
-                <viewController id="8z0-UR-aEj" sceneMemberID="viewController">
+                <viewController id="8z0-UR-aEj" customClass="BookDetails" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XB2-LE-AbH"/>
                         <viewControllerLayoutGuide type="bottom" id="7Qw-Es-oyB"/>
@@ -830,6 +838,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addRemoveBook" destination="8z0-UR-aEj" eventType="touchUpInside" id="hg6-eJ-qkE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWI-Gb-CZ4">
                                 <rect key="frame" x="108" y="225" width="189" height="21"/>
@@ -855,16 +866,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Book Details" id="Mma-ao-t8L"/>
-                    <navigationItem key="navigationItem" id="zbX-bT-uwH"/>
+                    <navigationItem key="navigationItem" title="Book Details" id="zbX-bT-uwH"/>
+                    <connections>
+                        <outlet property="addRemoveButton" destination="WJ6-jC-wDN" id="4Dt-gP-DfY"/>
+                        <outlet property="authorLabel" destination="Cb3-8N-KN7" id="7s5-0K-nYX"/>
+                        <outlet property="genreLabel" destination="Toz-us-ob0" id="rRS-I2-yAl"/>
+                        <outlet property="rateButton" destination="1WR-tu-meG" id="P8L-ye-SET"/>
+                        <outlet property="titleLabel" destination="G00-D0-Lv6" id="Gl5-2l-ah2"/>
+                        <segue destination="Agg-Qt-DLI" kind="unwind" identifier="unwindMyBookSearchController" unwindAction="unwindMyBookSearchController:" id="M1K-tq-eFM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxJ-5i-f8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Agg-Qt-DLI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2251" y="-1586"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Book Detail Tab Controller - TB-->
         <scene sceneID="mss-83-xJG">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="Bcm-kq-jm6" sceneMemberID="viewController">
+                <tabBarController title="TB" definesPresentationContext="YES" id="Bcm-kq-jm6" customClass="BookDetailTabController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XuP-5I-A7M"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -881,7 +901,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIF-6R-SP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779" y="-721"/>
+            <point key="canvasLocation" x="1613" y="-981"/>
         </scene>
         <!--Google Books Search - Add Book-->
         <scene sceneID="RBb-Fg-Vkq">
@@ -891,8 +911,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="lR8-Wc-ObU">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter Title, Author or ISBN" showsCancelButton="YES" id="lR8-Wc-ObU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -901,7 +921,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Lmj-C9-XvB" detailTextLabel="4r0-XU-qPy" style="IBUITableViewCellStyleSubtitle" id="qhv-Dg-SdI">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qhv-Dg-SdI" id="Alt-d6-Klx">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -923,9 +943,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Bcm-kq-jm6" kind="push" id="d8k-Ri-2Sq"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -949,7 +966,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1420" y="-721"/>
+            <point key="canvasLocation" x="1574" y="-215"/>
         </scene>
         <!--Table View Controller - Ratings/Reviews-->
         <scene sceneID="4rz-c7-ddA">
@@ -1190,7 +1207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACZ-an-Olg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-716" y="-712"/>
+            <point key="canvasLocation" x="-750" y="-707"/>
         </scene>
     </scenes>
     <resources>
@@ -1202,6 +1219,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nCJ-oF-r7S"/>
+        <segue reference="YAD-9N-Vq5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,7 +14,7 @@
 
 -(NSString *)add:(Book *)book;
 -(NSString *)remove:(Book *)book;
--(NSMutableArray *) getBooks;
+-(NSMutableArray *) getBooks: (NSString *) searchText;
 -(NSMutableArray *) getReviews:(Book *)forBook;
 -(NSMutableArray *) getBooksFromGoogle:(Book *)book;
 

@@ -11,10 +11,14 @@
 @implementation BookManager
 
 RESTService *_restService;
+NSString *_googleBooksServiceURL;
+NSString *_appyDaysServiceURL;
 
 -(id)init
 {
     _restService = [[RESTService alloc]init];
+    _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?apikey=";
+    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/books_instances.json?apikey=";
     return self;
 }
 
@@ -34,10 +38,10 @@ RESTService *_restService;
     return @""; //TO DO: What to return as response
 }
 
--(NSMutableArray *) getBooks
+-(NSMutableArray *) getBooks:(NSString *)searchText
 {
-    NSString *queryString = @"";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
+    NSString *queryString = [NSString stringWithFormat:@"&searchText=%@",searchText];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",_googleBooksServiceURL, queryString]];
     NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
     
     NSArray *bookArray = [responseDict objectForKey:@("")];
