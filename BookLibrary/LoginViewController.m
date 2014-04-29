@@ -122,6 +122,7 @@
      */
     if (success) {
         [self performSegueWithIdentifier:@"login_success" sender:self];
+        
     }
 }
 
@@ -141,9 +142,6 @@
     [self.view endEditing:YES];
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
+
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation Book
 
-@synthesize title, author;
+@synthesize title, author, rating, reviews;
 
 
 @end
