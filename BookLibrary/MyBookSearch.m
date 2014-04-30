@@ -10,6 +10,9 @@
 #import "BookDetails.h"
 #import "BookDetailTabController.h"
 
+#import "Book.h"
+#import "Review.h"
+
 @interface MyBookSearch ()
 {
     NSMutableArray *_myBookArray;
@@ -52,6 +55,27 @@ NSArray *filteredBookArray;
     Book *book1 = [[Book alloc] init];
     book1.title = @"The Hunger Games";
     book1.author = @"Suzanne Collins";
+    
+    Review *review1 = [[Review alloc] init];
+    review1.rating = 10;
+    review1.comment = @"This book is the bestest!";
+    review1.user = [[User alloc] init];
+    review1.user.firstName =  @"John";
+    review1.user.lastName = @"Doe";
+    
+    Review *review2 = [[Review alloc] init];
+    review2.rating = 9;
+    review2.comment = @"This book is gggggreaaatttt!";
+    review2.user = [[User alloc] init];
+    review2.user.firstName =  @"Tony";
+    review2.user.lastName = @"Tiger";
+    
+    NSMutableArray *reviewArray = [[NSMutableArray alloc]init];
+    [reviewArray addObject:review1];
+    [reviewArray addObject:review2];
+    
+    book1.reviews = [[NSMutableArray alloc] init];
+    [book1.reviews addObjectsFromArray:reviewArray];
     
     Book *book2 = [[Book alloc] init];
     book2.title = @"White Belts";
@@ -149,7 +173,13 @@ NSArray *filteredBookArray;
         Book *myBookDetail = [_myBookArray objectAtIndex:indexPath.row];
         BookDetailTabController *bookDetailTabController = segue.destinationViewController;
         bookDetailTabController.bookDetail=myBookDetail;
+        bookDetailTabController.bookReviews = [myBookDetail reviews];
         bookDetailTabController.isMyBook = YES;
+       
+        //Hide Lenders Tab
+        NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:bookDetailTabController.viewControllers];
+        [viewControllers removeObjectAtIndex:1];
+        [bookDetailTabController setViewControllers:viewControllers];
     }
 }
 

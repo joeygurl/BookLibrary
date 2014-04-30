@@ -11,5 +11,6 @@
 
 @interface BookDetailTabController : UITabBarController
 @property (strong, nonatomic) Book *bookDetail;
+@property (strong, nonatomic) NSMutableArray *bookReviews;
 @property BOOL isMyBook;
 @end
