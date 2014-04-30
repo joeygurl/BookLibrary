@@ -8,9 +8,11 @@
 
 #import "BookDetailTabController.h"
 #import "BookDetails.h"
+#import "RESTHelpers/BookManager.h"
 
 @implementation BookDetails
-BOOL isMyBook;
+BOOL _isMyBook;
+Book *_book;
 
 -(void)viewDidLoad
 {
@@ -22,13 +24,15 @@ BOOL isMyBook;
 {
     //Initialize Book Details
     BookDetailTabController *bookDetailTabController = (BookDetailTabController *) self.tabBarController;
-    isMyBook = bookDetailTabController.isMyBook;
+    _isMyBook = bookDetailTabController.isMyBook;
+    _book = bookDetailTabController.bookDetail;
     self.titleLabel.text= bookDetailTabController.bookDetail.title;
     self.authorLabel.text= bookDetailTabController.bookDetail.author;
     
     //Initialize Add/Remove Button
-    if (isMyBook)
+    if (_isMyBook)
     {
+        
         [self.addRemoveButton setTitle:@"Remove" forState:UIControlStateNormal];
         self.rateButton.hidden = NO;
     }
@@ -42,18 +46,25 @@ BOOL isMyBook;
  
 }
 
-
 - (IBAction)addRemoveBook {
     UIAlertView *alert;
-    if(isMyBook)
+    BookManager *bookManager = [[BookManager alloc]init];
+    if(_isMyBook)
+    {
+        //Remove book from my books
+        //[bookManager remove:_book];
         alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book removed from library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    }
     else
+    {
+        //Add book to my books
+        //[bookManager add:_book];
         alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book added to library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    }
 
     [alert show];
     
 }
-
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
