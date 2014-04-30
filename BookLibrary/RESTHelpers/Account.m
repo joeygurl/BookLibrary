@@ -12,10 +12,12 @@
 @implementation Account
 
 RESTService *_restService;
+NSString *_appyDaysServiceURL;
 
 -(id)init
 {
     _restService = [[RESTService alloc]init];
+    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/users.json?access_token=e5af08e17b1528828251510926dbbd21";
     return self;
 }
 
@@ -30,8 +32,8 @@ RESTService *_restService;
 
 -(NSString *) signIn:(User *)user
 {
-    NSString *queryString = @"";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
+    NSString *queryString = [NSString stringWithFormat:@"&email=%@&password=%@",user.emailAddress,user.password];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",_appyDaysServiceURL, queryString]];
     [_restService getResponse:url withMethod:@"GET"];
     return @""; //TO DO: What to return as response
 }

@@ -17,8 +17,8 @@ NSString *_appyDaysServiceURL;
 -(id)init
 {
     _restService = [[RESTService alloc]init];
-    _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?apikey=";
-    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/books_instances.json?apikey=";
+    _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?";
+    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/books_instances.json?access_token=e5af08e17b1528828251510926dbbd21";
     return self;
 }
 
