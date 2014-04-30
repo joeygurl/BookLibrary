@@ -48,10 +48,11 @@
 
 - (IBAction)SignInClick:(id)sender {
     //Set to 1 until log in server code is completed.
-    NSInteger success = 1;
+    NSInteger success;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     //Uncomment this block once login server code is completed
-    /*
+    
     @try {
         
         if([[self.txtEmail text] isEqualToString:@""] || [[self.txtPassword text] isEqualToString:@""] ) {
@@ -59,24 +60,25 @@
             [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
             
         } else {
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.txtEmail text],[self.txtPassword text]];
-            NSLog(@"PostData: %@",post);
+            NSString *get =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.txtEmail text],[self.txtPassword text]];
+            NSLog(@"GetData: %@",get);
             
             //replace with our url
             
-            NSURL *url=[NSURL URLWithString:@"http://"];
+            NSURL *url=[NSURL URLWithString:@"http://booklibraryapi.herokuapp.com:80/api/users.json?"];
             
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+           NSData *getData = [get dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
-            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-            
+            NSString *getLength = [NSString stringWithFormat:@"%lu", (unsigned long)[getData length]];
+
+           
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            [request setURL:[NSURL URLWithString:@"http://booklibraryapi.herokuapp.com:80/api/users.json?"]];
+            [request setHTTPMethod:@"GET"];
+            [request setValue:getLength forHTTPHeaderField:@"Content-Length"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
+            [request setHTTPBody:getData];
             
             //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
             
@@ -103,6 +105,8 @@
                 if(success == 1)
                 {
                     NSLog(@"Login SUCCESS");
+                     [defaults setInteger:12 forKey:@"kIntegerKey"];
+                     [defaults synchronize];
                 } else {
                     
                     NSString *error_msg = (NSString *) jsonData[@"error_message"];
@@ -119,7 +123,7 @@
         NSLog(@"Exception: %@", e);
         [self alertStatus:@"Sign in Failed." :@"Error!" :0];
     }
-     */
+    
     if (success) {
         [self performSegueWithIdentifier:@"login_success" sender:self];
         
