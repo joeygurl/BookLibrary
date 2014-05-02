@@ -7,6 +7,8 @@
 //
 
 #import "Registration.h"
+#import "Account.h"
+#import "RESTHelpers/RESTService.h"
 
 @interface Registration()
 @property (weak, nonatomic) IBOutlet UILabel *registrationMessageLabel;
@@ -27,4 +29,28 @@
 - (IBAction)handleContinue:(UIButton *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
+- (IBAction)RegistrationClicked:(id)sender {
+    
+    
+    Account *account=[[Account alloc]init];
+    
+    User *user=[[User alloc]init];
+    
+    user.emailAddress= _txtEmail;
+    user.firstName=_txtFirstname;
+    user.lastName=_txtLastname;
+    user.city=_txtCity;
+    user.password=_txtPassword;
+    
+    
+    [account register:user];
+
+}
+
+- (IBAction)backgroundTap:(id)sender {
+     [self.view endEditing:YES];
+}
+
+
+
 @end
