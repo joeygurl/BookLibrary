@@ -467,10 +467,10 @@
             </objects>
             <point key="canvasLocation" x="-727" y="-1468"/>
         </scene>
-        <!--Table View Controller - My Library-->
+        <!--My Library - My Library-->
         <scene sceneID="fNs-dp-2BD">
             <objects>
-                <tableViewController id="Zgr-Te-gsY" sceneMemberID="viewController">
+                <tableViewController id="Zgr-Te-gsY" customClass="MyLibrary" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XqZ-fI-xEb">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1277,7 +1277,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lvL-gt-dMO"/>
-        <segue reference="zw3-MN-k2N"/>
+        <segue reference="muq-Do-8vQ"/>
+        <segue reference="gMR-8c-Dbv"/>
     </inferredMetricsTieBreakers>
 </document>

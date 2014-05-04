@@ -10,5 +10,8 @@
 
 
 @interface MyBookSearch : UITableViewController<UISearchBarDelegate,UISearchDisplayDelegate>
+
+@property int bookState;
+
 -(IBAction)unwindMyBookSearchController:(UIStoryboardSegue *)unwindSegue;
 @end

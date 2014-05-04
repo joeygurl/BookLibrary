@@ -24,7 +24,7 @@
 		E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */; };
 		E308DB4118F986FD005AA4D7 /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3F18F986FD005AA4D7 /* Registration.m */; };
 		E3656A571904826C0084A562 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A541904826C0084A562 /* LoginViewController.m */; };
-		E3656A581904826C0084A562 /* MyLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A561904826C0084A562 /* MyLibraryViewController.m */; };
+		E3656A581904826C0084A562 /* MyLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A561904826C0084A562 /* MyLibrary.m */; };
 		E3656A5E1905642A0084A562 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A5D1905642A0084A562 /* Book.m */; };
 		E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */; };
 		E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2C18FCDD99002C110D /* MyBookSearch.m */; };
@@ -75,8 +75,8 @@
 		E308DB3F18F986FD005AA4D7 /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
 		E3656A531904826C0084A562 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E3656A541904826C0084A562 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		E3656A551904826C0084A562 /* MyLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibraryViewController.h; sourceTree = "<group>"; };
-		E3656A561904826C0084A562 /* MyLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibraryViewController.m; sourceTree = "<group>"; };
+		E3656A551904826C0084A562 /* MyLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLibrary.h; sourceTree = "<group>"; };
+		E3656A561904826C0084A562 /* MyLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLibrary.m; sourceTree = "<group>"; };
 		E3656A5C1905642A0084A562 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Book.h; path = Models/Book.h; sourceTree = "<group>"; };
 		E3656A5D1905642A0084A562 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
 		E38ACB2718FCDB48002C110D /* GoogleBooksSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleBooksSearch.h; sourceTree = "<group>"; };
@@ -230,8 +230,8 @@
 			children = (
 				E3656A531904826C0084A562 /* LoginViewController.h */,
 				E3656A541904826C0084A562 /* LoginViewController.m */,
-				E3656A551904826C0084A562 /* MyLibraryViewController.h */,
-				E3656A561904826C0084A562 /* MyLibraryViewController.m */,
+				E3656A551904826C0084A562 /* MyLibrary.h */,
+				E3656A561904826C0084A562 /* MyLibrary.m */,
 				E308DB3C18F986FD005AA4D7 /* PasswordHelp.h */,
 				E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */,
 				E308DB3E18F986FD005AA4D7 /* Registration.h */,
@@ -374,7 +374,7 @@
 				E3656A5E1905642A0084A562 /* Book.m in Sources */,
 				E3656A571904826C0084A562 /* LoginViewController.m in Sources */,
 				E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */,
-				E3656A581904826C0084A562 /* MyLibraryViewController.m in Sources */,
+				E3656A581904826C0084A562 /* MyLibrary.m in Sources */,
 				E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */,
 				E3B4AEBD190BFCDB00F1BD18 /* User.m in Sources */,
 				E3F10C6A1910A083006DF2BE /* Review.m in Sources */,

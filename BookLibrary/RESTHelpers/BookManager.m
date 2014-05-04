@@ -18,7 +18,7 @@ NSString *_appyDaysServiceURL;
 {
     _restService = [[RESTService alloc]init];
     _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?access_token=e5af08e17b1528828251510926dbbd21";
-    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/books_instances.json?access_token=e5af08e17b1528828251510926dbbd21";
+    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api";
     return self;
 }
 
@@ -76,10 +76,27 @@ NSString *_appyDaysServiceURL;
 
 }
 
--(NSMutableArray *) getBooks:(Book *)book
+-(NSMutableArray *) getBooks:(int)bookState
 {
-    NSString *queryString = @"";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
+    NSString *queryString = @"access_token=&user_id=";
+    NSString *s_url = @"";
+    switch (bookState) {
+        case MY_BOOKS:
+            s_url=@"/book_instances.json";
+            break;
+        case LOANED_BOOKS:
+            s_url=@"/loans/lent.json";
+            break;
+        case BORROWED_BOOKS:
+            s_url=@"/loans/borrowed.json";
+            break;
+        case PENDING_REQUEST_BOOKS:
+            s_url=@"/loans/request.json";
+            break;
+        default:
+            break;
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@&%@",_appyDaysServiceURL,s_url, queryString]];
     NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
     
     NSArray *bookArray = [responseDict objectForKey:@("")];

@@ -9,6 +9,7 @@
 #import "MyBookSearch.h"
 #import "BookDetails.h"
 #import "BookDetailTabController.h"
+#import "RESTHelpers/BookManager.h"
 
 #import "Book.h"
 #import "Review.h"
@@ -16,6 +17,7 @@
 @interface MyBookSearch ()
 {
     NSMutableArray *_myBookArray;
+    BookManager *_bookManager;
 }
 
 - (void) initializeButtonIconsOnRightNavBar;
@@ -38,7 +40,10 @@ NSArray *filteredBookArray;
 {
     [super viewDidLoad];
     
-    [self initializeBookList];
+    [self setViewLabel];
+    _myBookArray = [_bookManager getBooks: [self bookState]];
+    
+    //[self initializeBookList];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -48,6 +53,29 @@ NSArray *filteredBookArray;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) setViewLabel
+{
+    switch([self bookState])
+    {
+        case MY_BOOKS:
+            self.navigationItem.title=@"My Books";
+            break;
+        case LOANED_BOOKS:
+            self.navigationItem.title=@"Loaned Books";
+            break;
+        case BORROWED_BOOKS:
+            self.navigationItem.title=@"Borrowed Books";
+            break;
+        case PENDING_REQUEST_BOOKS:
+            self.navigationItem.title=@"Pending Request";
+            break;
+        default:
+            self.navigationItem.title=@"My Books";
+            break;
+            
+    }
 }
 
 - (void) initializeBookList
@@ -84,6 +112,8 @@ NSArray *filteredBookArray;
     _myBookArray = [[NSMutableArray alloc] init];
     [_myBookArray addObject:book1];
     [_myBookArray addObject:book2];
+    
+    
 }
 
 

@@ -11,11 +11,18 @@
 #import "RESTService.h"
 
 @interface BookManager : NSObject
+typedef enum bookStateTypes
+{
+    MY_BOOKS=0,
+    LOANED_BOOKS,
+    BORROWED_BOOKS,
+    PENDING_REQUEST_BOOKS
+}BookState;
 
 -(NSString *)add:(Book *)book;
 -(NSString *)remove:(Book *)book;
--(NSMutableArray *) getBooks: (NSString *) searchText;
+-(NSMutableArray *) getBooks: (int)bookState;
 -(NSMutableArray *) getReviews:(Book *)forBook;
--(NSMutableArray *) getBooksFromGoogle:(Book *)book;
+-(NSMutableArray *) getBooksFromGoogle:(NSString *) searchText;
 
 @end
