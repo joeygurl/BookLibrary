@@ -52,8 +52,8 @@
     Account *account=[[Account alloc]init];
     
     User *user=[[User alloc]init];
-    user.emailAddress= _txtEmail;
-    user.password=_txtPassword;
+    user.emailAddress= _txtEmail.text;
+    user.password=_txtPassword.text;
     [account signIn:user];
     
 }

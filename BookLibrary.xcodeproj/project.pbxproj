@@ -28,7 +28,6 @@
 		E3656A5E1905642A0084A562 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A5D1905642A0084A562 /* Book.m */; };
 		E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */; };
 		E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2C18FCDD99002C110D /* MyBookSearch.m */; };
-		E38ACB3018FCE02C002C110D /* GoogleBookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */; };
 		E38ACB3318FCE707002C110D /* BookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB3218FCE707002C110D /* BookDetails.m */; };
 		E3B4AEBA190BFC6A00F1BD18 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEB9190BFC6A00F1BD18 /* Account.m */; };
 		E3B4AEBD190BFCDB00F1BD18 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEBC190BFCDB00F1BD18 /* User.m */; };
@@ -84,8 +83,6 @@
 		E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleBooksSearch.m; sourceTree = "<group>"; };
 		E38ACB2B18FCDD99002C110D /* MyBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookSearch.h; sourceTree = "<group>"; };
 		E38ACB2C18FCDD99002C110D /* MyBookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookSearch.m; sourceTree = "<group>"; };
-		E38ACB2E18FCE02C002C110D /* GoogleBookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleBookDetails.h; sourceTree = "<group>"; };
-		E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleBookDetails.m; sourceTree = "<group>"; };
 		E38ACB3118FCE707002C110D /* BookDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetails.h; sourceTree = "<group>"; };
 		E38ACB3218FCE707002C110D /* BookDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetails.m; sourceTree = "<group>"; };
 		E3B4AEB8190BFC6A00F1BD18 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = RESTHelpers/Account.h; sourceTree = "<group>"; };
@@ -245,8 +242,6 @@
 				E38ACB2818FCDB48002C110D /* GoogleBooksSearch.m */,
 				E38ACB2B18FCDD99002C110D /* MyBookSearch.h */,
 				E38ACB2C18FCDD99002C110D /* MyBookSearch.m */,
-				E38ACB2E18FCE02C002C110D /* GoogleBookDetails.h */,
-				E38ACB2F18FCE02C002C110D /* GoogleBookDetails.m */,
 				E38ACB3118FCE707002C110D /* BookDetails.h */,
 				E38ACB3218FCE707002C110D /* BookDetails.m */,
 				E3B5C776190EC464006760EE /* BookDetailTabController.h */,
@@ -382,7 +377,6 @@
 				E3656A581904826C0084A562 /* MyLibraryViewController.m in Sources */,
 				E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */,
 				E3B4AEBD190BFCDB00F1BD18 /* User.m in Sources */,
-				E38ACB3018FCE02C002C110D /* GoogleBookDetails.m in Sources */,
 				E3F10C6A1910A083006DF2BE /* Review.m in Sources */,
 				E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */,
 				E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */,

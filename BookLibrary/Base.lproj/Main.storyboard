@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -555,7 +555,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IgA-Rf-vmP" kind="push" id="muq-Do-8vQ"/>
+                                            <segue destination="IgA-Rf-vmP" kind="push" identifier="pending" id="muq-Do-8vQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -566,7 +566,13 @@
                             <outlet property="delegate" destination="Zgr-Te-gsY" id="jnt-h9-W7z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Library" id="yHW-zY-RdH"/>
+                    <navigationItem key="navigationItem" title="My Library" id="yHW-zY-RdH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yxj-DT-can">
+                            <connections>
+                                <segue destination="sMH-GY-FMr" kind="push" identifier="addBook" id="Ju5-5I-enh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCM-k2-3th" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -770,13 +776,7 @@
                             <outlet property="delegate" destination="IgA-Rf-vmP" id="JKj-gG-OQ1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Books" id="J3w-7L-xhE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0v5-bH-Lmh">
-                            <connections>
-                                <segue destination="sMH-GY-FMr" kind="modal" identifier="addBook" id="Pf0-hb-KeG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Books" id="J3w-7L-xhE"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="9ba-1e-nnc" id="PTV-HN-3wE"/>
                     </connections>
@@ -940,7 +940,7 @@
             <objects>
                 <tableViewController id="sMH-GY-FMr" customClass="GoogleBooksSearch" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HPJ-o3-pXw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter Title, Author or ISBN" showsCancelButton="YES" id="lR8-Wc-ObU">
@@ -952,7 +952,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Lmj-C9-XvB" detailTextLabel="4r0-XU-qPy" style="IBUITableViewCellStyleSubtitle" id="qhv-Dg-SdI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Lmj-C9-XvB" detailTextLabel="4r0-XU-qPy" style="IBUITableViewCellStyleSubtitle" id="qhv-Dg-SdI">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qhv-Dg-SdI" id="Alt-d6-Klx">
@@ -975,6 +975,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Bcm-kq-jm6" kind="push" identifier="bookSearchDetails" id="lvL-gt-dMO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -998,7 +1001,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1574" y="-215"/>
+            <point key="canvasLocation" x="1033" y="-22"/>
         </scene>
         <!--Reviews - Ratings/Reviews-->
         <scene sceneID="4rz-c7-ddA">
@@ -1274,6 +1277,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eBq-ap-6U5"/>
+        <segue reference="lvL-gt-dMO"/>
+        <segue reference="zw3-MN-k2N"/>
     </inferredMetricsTieBreakers>
 </document>

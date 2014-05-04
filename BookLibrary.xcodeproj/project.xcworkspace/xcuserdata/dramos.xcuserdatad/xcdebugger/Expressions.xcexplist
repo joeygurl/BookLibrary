@@ -3,7 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
+         contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
       </ContextState>
       <ContextState
          contextName = "-[MyBookDetailsTab configureView]:MyBookDetailsTab.m">
@@ -33,7 +33,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
+         contextName = "-[BookManager getBooks:]:BookManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSURL URLWithString:[NSString stringWithFormat:@&quot;%@%@&quot;,_googleBooksServiceURL, queryString]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
