@@ -114,5 +114,10 @@ NSString *_appyDaysServiceURL;
     return bookList;
 }
 
+-(NSMutableArray *) getLenders:(Book *)forBook
+{
+    NSMutableArray *bookList = [[NSMutableArray alloc]init];
+    return bookList;
+}
 
 @end

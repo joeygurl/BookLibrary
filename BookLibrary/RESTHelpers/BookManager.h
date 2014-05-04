@@ -24,5 +24,6 @@ typedef enum bookStateTypes
 -(NSMutableArray *) getBooks: (int)bookState;
 -(NSMutableArray *) getReviews:(Book *)forBook;
 -(NSMutableArray *) getBooksFromGoogle:(NSString *) searchText;
+-(NSMutableArray *) getLenders:(Book *)forBook;
 
 @end
