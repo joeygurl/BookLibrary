@@ -10,7 +10,7 @@
 
 @implementation Book
 
-@synthesize title, author, rating, reviews;
+@synthesize isbn, title, author, imageLink, genres, rating, reviews;
 
 
 @end

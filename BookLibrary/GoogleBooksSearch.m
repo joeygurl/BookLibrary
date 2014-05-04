@@ -7,6 +7,7 @@
 //
 
 #import "GoogleBooksSearch.h"
+#import "BookDetailTabController.h"
 
 @interface GoogleBooksSearch ()
 {
@@ -38,12 +39,12 @@ NSArray *filteredBookArray;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //_bookArray = [[NSMutableArray alloc] initWithObjects: @"Book1", @"Book2",nil];
-    
-}
+    _bookManager = [[BookManager alloc] init];
+   }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self.searchDisplayController.searchBar becomeFirstResponder];
+    //[self.searchDisplayController.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,7 +55,7 @@ NSArray *filteredBookArray;
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    [self dismissViewControllerAnimated:true completion:nil];
+    //[self dismissViewControllerAnimated:true completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -83,7 +84,8 @@ NSArray *filteredBookArray;
     }
     
     Book *book = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView && _bookArray != nil) {
+    //if (tableView == self.searchDisplayController.searchResultsTableView && _bookArray != nil) {
+    if (_bookArray != nil) {
         book = [_bookArray objectAtIndex:indexPath.row];
         cell.textLabel.text = book.title;
         cell.detailTextLabel.text = book.author;
@@ -93,6 +95,7 @@ NSArray *filteredBookArray;
     
     return cell;
 }
+
 
 
 
@@ -106,9 +109,17 @@ NSArray *filteredBookArray;
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    _bookArray = [_bookManager getBooks:searchString];
-    
-    return YES;
+    [controller.searchResultsTableView setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.8]];
+    [controller.searchResultsTableView setRowHeight:800];
+    [controller.searchResultsTableView setScrollEnabled:NO];
+    return NO;
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    _bookArray = [_bookManager getBooksFromGoogle:[searchBar text]];
+    [self.searchDisplayController setActive:NO];
+    [self.tableView reloadData];
+
 }
 
 /*
@@ -148,7 +159,15 @@ NSArray *filteredBookArray;
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-
+    if ([segue.identifier isEqualToString:@"bookSearchDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Book *myBookDetail = [_bookArray objectAtIndex:indexPath.row];
+        BookDetailTabController *bookDetailTabController = segue.destinationViewController;
+        bookDetailTabController.bookDetail=myBookDetail;
+        bookDetailTabController.bookReviews = [myBookDetail reviews];
+        bookDetailTabController.isMyBook = NO;
+       
+    }
 }
 
 

@@ -28,6 +28,7 @@ Book *_book;
     _book = bookDetailTabController.bookDetail;
     self.titleLabel.text= bookDetailTabController.bookDetail.title;
     self.authorLabel.text= bookDetailTabController.bookDetail.author;
+    self.genreLabel.text=bookDetailTabController.bookDetail.genres;
     
     //Initialize Add/Remove Button
     if (_isMyBook)

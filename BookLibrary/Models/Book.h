@@ -10,8 +10,11 @@
 
 @interface Book : NSObject
 
+@property NSString *isbn;
 @property NSString *title;
 @property NSString *author;
+@property NSString *imageLink;
+@property NSString *genres;
 @property int rating;
 @property NSMutableArray *reviews;
 

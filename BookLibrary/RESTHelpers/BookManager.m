@@ -17,7 +17,7 @@ NSString *_appyDaysServiceURL;
 -(id)init
 {
     _restService = [[RESTService alloc]init];
-    _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?";
+    _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?access_token=e5af08e17b1528828251510926dbbd21";
     _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/books_instances.json?access_token=e5af08e17b1528828251510926dbbd21";
     return self;
 }
@@ -38,20 +38,24 @@ NSString *_appyDaysServiceURL;
     return @""; //TO DO: What to return as response
 }
 
--(NSMutableArray *) getBooks:(NSString *)searchText
+-(NSMutableArray *) getBooksFromGoogle:(NSString *)searchText
 {
-    NSString *queryString = [NSString stringWithFormat:@"&searchText=%@",searchText];
+    NSString *queryString = [NSString stringWithFormat:@"&search_text=%@",[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",_googleBooksServiceURL, queryString]];
     NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
     
-    NSArray *bookArray = [responseDict objectForKey:@("")];
+    //NSArray *bookArray = [responseDict];
     NSMutableArray *bookList= [[NSMutableArray alloc]init];
     
     //parse dictionary
-    for(NSDictionary *retBook in bookArray){
+    for(id retBook in responseDict){
         //create book object & init
         Book *book = [[Book alloc] init];
-        book.title = [retBook objectForKey:@""];
+        book.isbn = [retBook objectForKey: @"isbn_13"];
+        book.title = [retBook objectForKey: @"title"];
+        book.author = [retBook objectForKey: @"authors"];
+        book.genres = [retBook objectForKey: @"genres"];
+        book.imageLink = [retBook objectForKey: @"image_link"];
         
         //add book object to contact array
         [bookList addObject:book];
@@ -59,6 +63,7 @@ NSString *_appyDaysServiceURL;
     return bookList;
 
 }
+
 
 -(NSMutableArray *) getReviews:(Book *)forBook
 {
@@ -71,7 +76,7 @@ NSString *_appyDaysServiceURL;
 
 }
 
--(NSMutableArray *) getBooksFromGoogle:(Book *)book
+-(NSMutableArray *) getBooks:(Book *)book
 {
     NSString *queryString = @"";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
