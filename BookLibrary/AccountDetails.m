@@ -89,10 +89,6 @@
     }
 }
 
-- (IBAction)BackgroundTap:(id)sender {
-    [self.view endEditing:YES];
-}
-
 
 /*
 

@@ -15,8 +15,6 @@
 @property (nonatomic, weak) id delegate;
 //@property (nonatomic, strong) User *userDetail;
 
-- (IBAction)backgroundTap:(id)sender;
-
 
 @end
 

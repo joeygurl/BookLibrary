@@ -93,14 +93,14 @@
                     <navigationItem key="navigationItem" title="Account Settings" id="0ve-5a-LDE">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="hEq-da-czb">
                             <connections>
-                                <action selector="SaveClicked:" destination="Uox-Dh-qe8" id="YI1-nr-22W"/>
+                                <action selector="SaveClicked:" destination="Uox-Dh-qe8" id="CqN-T1-DBa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="confirmPwTextField" destination="rST-nw-et9" id="aNN-b6-50O"/>
-                        <outlet property="nwPwTextField" destination="THK-Ct-8mj" id="eCE-sb-tLL"/>
-                        <outlet property="oldPwTextField" destination="YW8-GO-oCN" id="iTv-8b-oXs"/>
+                        <outlet property="confirmPwTextField" destination="rST-nw-et9" id="qMh-yf-qaV"/>
+                        <outlet property="nwPwTextField" destination="THK-Ct-8mj" id="mPx-NQ-EUn"/>
+                        <outlet property="oldPwTextField" destination="YW8-GO-oCN" id="blG-3M-vHO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHJ-3p-gzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -712,6 +712,13 @@
                                                     <rect key="frame" x="136" y="0.0" width="184" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrL-fX-7Lb">
+                                                    <rect key="frame" x="149" y="11" width="151" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -721,29 +728,20 @@
                         <connections>
                             <outlet property="dataSource" destination="DSR-2W-s70" id="1hS-BB-lBX"/>
                             <outlet property="delegate" destination="DSR-2W-s70" id="spx-ip-pXs"/>
-                            <outletCollection property="gestureRecognizers" destination="dft-nT-YUy" appends="YES" id="oiW-ro-gQ2"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Account Details" id="DmD-sc-Igf">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="ck6-Fi-G4G">
-                            <connections>
-                                <action selector="SaveClicked:" destination="DSR-2W-s70" id="bU2-u9-Sf7"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ck6-Fi-G4G"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="city" destination="aWJ-9T-WY5" id="yfV-Hc-y0h"/>
-                        <outlet property="email" destination="4yN-Qd-WSX" id="GLj-Q5-BFE"/>
-                        <outlet property="firstName" destination="zZd-rU-xPd" id="nRP-KH-X15"/>
-                        <outlet property="lastName" destination="42m-9o-63K" id="Siw-M2-tlO"/>
+                        <outlet property="city" destination="aWJ-9T-WY5" id="9s8-sw-ObZ"/>
+                        <outlet property="email" destination="4yN-Qd-WSX" id="CNY-d6-zrO"/>
+                        <outlet property="firstName" destination="zZd-rU-xPd" id="EuJ-SI-Y8u"/>
+                        <outlet property="lastName" destination="42m-9o-63K" id="slm-DC-BJN"/>
+                        <outlet property="stateLabel" destination="lrL-fX-7Lb" id="xJf-6I-5Dd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kee-tp-Ghz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dft-nT-YUy">
-                    <connections>
-                        <action selector="BackgroundTap:" destination="DSR-2W-s70" id="Uat-Jk-PVY"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="501" y="-62"/>
         </scene>
@@ -1302,7 +1300,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="muq-Do-8vQ"/>
         <segue reference="gMR-8c-Dbv"/>
+        <segue reference="eBq-ap-6U5"/>
     </inferredMetricsTieBreakers>
 </document>
