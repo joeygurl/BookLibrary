@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtFirstname;
 @property (weak, nonatomic) IBOutlet UITextField *txtLastname;
-@property (weak, nonatomic) IBOutlet UITextField *txtCity;
+@property (weak, nonatomic) IBOutlet UITextField *txtCityState;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 - (IBAction)RegistrationClicked:(id)sender;
 - (IBAction)backgroundTap:(id)sender;

@@ -96,9 +96,6 @@ NSArray *filteredBookArray;
     return cell;
 }
 
-
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -165,7 +162,15 @@ NSArray *filteredBookArray;
         BookDetailTabController *bookDetailTabController = segue.destinationViewController;
         bookDetailTabController.bookDetail=myBookDetail;
         bookDetailTabController.bookReviews = [myBookDetail reviews];
-        bookDetailTabController.isMyBook = NO;
+        bookDetailTabController.currentView = ADD_BOOK;
+        
+        //Hide Lenders & Reviews Tab
+        NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:bookDetailTabController.viewControllers];
+        NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:1];
+        [indexes addIndex:2];
+        [viewControllers removeObjectsAtIndexes:indexes];
+        
+        [bookDetailTabController setViewControllers:viewControllers];
        
     }
 }

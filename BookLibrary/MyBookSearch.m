@@ -9,7 +9,7 @@
 #import "MyBookSearch.h"
 #import "BookDetails.h"
 #import "BookDetailTabController.h"
-#import "RESTHelpers/BookManager.h"
+
 
 #import "Book.h"
 #import "Review.h"
@@ -41,9 +41,10 @@ NSArray *filteredBookArray;
     [super viewDidLoad];
     
     [self setViewLabel];
+    _bookManager = [[BookManager alloc] init];
     _myBookArray = [_bookManager getBooks: [self bookState]];
-    
     //[self initializeBookList];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -204,7 +205,7 @@ NSArray *filteredBookArray;
         BookDetailTabController *bookDetailTabController = segue.destinationViewController;
         bookDetailTabController.bookDetail=myBookDetail;
         bookDetailTabController.bookReviews = [myBookDetail reviews];
-        bookDetailTabController.isMyBook = YES;
+        bookDetailTabController.currentView = [self bookState];
        
         //Hide Lenders Tab
         NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:bookDetailTabController.viewControllers];
@@ -213,7 +214,10 @@ NSArray *filteredBookArray;
     }
 }
 
--(IBAction)unwindMyBookSearchController:(UIStoryboardSegue *)unwindSegue {}
+-(IBAction)unwindMyBookSearchController:(UIStoryboardSegue *)unwindSegue
+{
+    
+}
 
 
 @end

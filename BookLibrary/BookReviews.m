@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Appy Days. All rights reserved.
 //
 
-#import "Reviews.h"
+#import "BookReviews.h"
 #import "BookDetailTabController.h"
 
 #import "Models/Review.h"
 
-@interface Reviews ()
+@interface BookReviews ()
 
 @end
 
-@implementation Reviews
+@implementation BookReviews
 NSMutableArray *_reviews;
 
 - (id)initWithStyle:(UITableViewStyle)style
