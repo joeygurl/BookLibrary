@@ -26,4 +26,21 @@
     NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     return responseDict;
 }
+
+-(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method andBody:(NSString *)body
+{
+    //init request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:fromURL];
+    [request setHTTPMethod:method];
+    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //init response
+    NSHTTPURLResponse *response = nil;
+    NSError *error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+    return responseDict;
+}
 @end

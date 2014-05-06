@@ -3,7 +3,37 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[MyBookSearch tableView:cellForRowAtIndexPath:]:MyBookSearch.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BookDetailTabController viewDidLoad]:BookDetailTabController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tabBarController.viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MyBookSearch tableView:numberOfRowsInSection:]:MyBookSearch.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[_myBookArray count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BookManager getBooks:]:BookManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSURL URLWithString:[NSString stringWithFormat:@&quot;%@%@&quot;,_googleBooksServiceURL, queryString]]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[MyBookDetailsTab configureView]:MyBookDetailsTab.m">
@@ -17,31 +47,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[BookDetailTabController viewDidLoad]:BookDetailTabController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.tabBarController.viewControllers">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[MyBookDetails configureView]:MyBookDetails.m">
          <PersistentStrings>
             <PersistentString
                value = "myBookDetailsTab.labelString">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[BookManager getBooks:]:BookManager.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[NSURL URLWithString:[NSString stringWithFormat:@&quot;%@%@&quot;,_googleBooksServiceURL, queryString]]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
