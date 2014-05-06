@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1112EFA9191860CD005BCD39 /* AccountSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 1112EFA8191860CD005BCD39 /* AccountSettings.m */; };
+		11B7ADC51918696E00B45A58 /* AccountDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B7ADC41918696E00B45A58 /* AccountDetails.m */; };
 		E308DB0518F98618005AA4D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E308DB0418F98618005AA4D7 /* Foundation.framework */; };
 		E308DB0718F98618005AA4D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E308DB0618F98618005AA4D7 /* CoreGraphics.framework */; };
 		E308DB0918F98618005AA4D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E308DB0818F98618005AA4D7 /* UIKit.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1112EFA7191860BE005BCD39 /* AccountSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettings.h; sourceTree = "<group>"; };
+		1112EFA8191860CD005BCD39 /* AccountSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettings.m; sourceTree = "<group>"; };
+		11B7ADC31918696E00B45A58 /* AccountDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetails.h; sourceTree = "<group>"; };
+		11B7ADC41918696E00B45A58 /* AccountDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetails.m; sourceTree = "<group>"; };
 		E308DB0118F98618005AA4D7 /* BookLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E308DB0418F98618005AA4D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E308DB0618F98618005AA4D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -250,6 +256,10 @@
 				E3F10C6619109393006DF2BE /* LendersViewController.m */,
 				E3F10C6B1910A48A006DF2BE /* Reviews.h */,
 				E3F10C6C1910A48A006DF2BE /* Reviews.m */,
+				1112EFA7191860BE005BCD39 /* AccountSettings.h */,
+				1112EFA8191860CD005BCD39 /* AccountSettings.m */,
+				11B7ADC31918696E00B45A58 /* AccountDetails.h */,
+				11B7ADC41918696E00B45A58 /* AccountDetails.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -370,6 +380,7 @@
 				E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */,
 				E308DB4118F986FD005AA4D7 /* Registration.m in Sources */,
 				E38ACB3318FCE707002C110D /* BookDetails.m in Sources */,
+				11B7ADC51918696E00B45A58 /* AccountDetails.m in Sources */,
 				E3F10C6D1910A48A006DF2BE /* Reviews.m in Sources */,
 				E3656A5E1905642A0084A562 /* Book.m in Sources */,
 				E3656A571904826C0084A562 /* LoginViewController.m in Sources */,
@@ -379,6 +390,7 @@
 				E3B4AEBD190BFCDB00F1BD18 /* User.m in Sources */,
 				E3F10C6A1910A083006DF2BE /* Review.m in Sources */,
 				E38ACB2918FCDB48002C110D /* GoogleBooksSearch.m in Sources */,
+				1112EFA9191860CD005BCD39 /* AccountSettings.m in Sources */,
 				E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */,
 				E308DB1118F98618005AA4D7 /* main.m in Sources */,
 				E3B4AEBA190BFC6A00F1BD18 /* Account.m in Sources */,
