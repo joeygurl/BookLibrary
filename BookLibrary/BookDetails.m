@@ -11,7 +11,7 @@
 #import "RESTHelpers/BookManager.h"
 
 @implementation BookDetails
-BOOL _isMyBook;
+BookState _currentView;
 Book *_book;
 
 -(void)viewDidLoad
@@ -24,47 +24,94 @@ Book *_book;
 {
     //Initialize Book Details
     BookDetailTabController *bookDetailTabController = (BookDetailTabController *) self.tabBarController;
-    _isMyBook = bookDetailTabController.isMyBook;
+    _currentView = bookDetailTabController.currentView;
     _book = bookDetailTabController.bookDetail;
     self.titleLabel.text= bookDetailTabController.bookDetail.title;
     self.authorLabel.text= bookDetailTabController.bookDetail.author;
     self.genreLabel.text=bookDetailTabController.bookDetail.genres;
     
-    //Initialize Add/Remove Button
-    if (_isMyBook)
-    {
-        
-        [self.addRemoveButton setTitle:@"Remove" forState:UIControlStateNormal];
-        self.rateButton.hidden = NO;
+    
+    switch (_currentView) {
+        case ADD_BOOK:
+            [self setControlVisibility:YES ul:YES dlc:YES dl:YES tb:NO bb:YES];
+            [self.topButton setTitle:@"Add" forState:UIControlStateNormal];
+            break;
+        case MY_BOOKS:
+            [self setControlVisibility:YES ul:YES dlc:YES dl:YES tb:NO bb:YES];
+            [self.topButton setTitle:@"Remove" forState:UIControlStateNormal];
+            break;
+        case LOANED_BOOKS:
+            [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:NO bb:YES];
+            [self.topButton setTitle:@"Mark Returned" forState:UIControlStateNormal];
+            [self.userLabelCaption setText:@"Loaned To:"];
+            [self.dateLabelCaption setText:@"Loaned On:"];
+            break;
+        case BORROWED_BOOKS:
+            [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:YES bb:YES];
+            [self.userLabelCaption setText:@"Borrowed From:"];
+            [self.dateLabelCaption setText:@"Borrowed On:"];
+            break;
+        case PENDING_REQUEST_BOOKS:
+            [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:NO bb:NO];
+            [self.userLabelCaption setText:@"Requested By:"];
+            [self.dateLabelCaption setText:@"Requested On:"];
+            [self.topButton setTitle:@"Lend" forState:UIControlStateNormal];
+            [self.bottomButton setTitle:@"Deny" forState:UIControlStateNormal];
+            break;
+        default:
+            break;
     }
-    else
-    {
-        [self.addRemoveButton setTitle:@"Add" forState:UIControlStateNormal];
-        self.rateButton.hidden = YES;
-        
-    }
-        
- 
+    
 }
 
-- (IBAction)addRemoveBook {
+-(void)setControlVisibility:(BOOL) ulc ul:(BOOL)ul dlc:(BOOL)dlc dl:(BOOL)dl tb:(BOOL)tb bb:(BOOL)bb
+{
+    self.userLabelCaption.hidden = ulc;
+    self.userLabel.hidden = ul;
+    self.dateLabelCaption.hidden = dlc;
+    self.dateLabel.hidden = dl;
+    self.topButton.hidden = tb;
+    self.bottomButton.hidden= bb;
+}
+
+- (IBAction)topButtonHandler {
     UIAlertView *alert;
     BookManager *bookManager = [[BookManager alloc]init];
-    if(_isMyBook)
-    {
-        //Remove book from my books
-        //[bookManager remove:_book];
-        alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book removed from library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    }
-    else
-    {
-        //Add book to my books
-        //[bookManager add:_book];
-        alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book added to library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    }
+    switch (_currentView) {
+        case ADD_BOOK:
+            //Add book to my books
+            [bookManager add:_book];
+            alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book added to library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            break;
+        case MY_BOOKS:
+            //Remove book from my books
+            [bookManager remove:_book];
+            alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book removed from library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            break;
+        case LOANED_BOOKS:
+            //Add book to my books
+            [bookManager markReturned:_book];
+            alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book returned to library." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 
+            break;
+         case PENDING_REQUEST_BOOKS:
+            [bookManager approveLoan:_book];
+            alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book loan request approved." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            break;
+        default:
+            break;
+    }
+   
     [alert show];
     
+}
+
+- (IBAction)bottomButtonHandler {
+    UIAlertView *alert;
+    BookManager *bookManager = [[BookManager alloc]init];
+    [bookManager denyLoan:_book];
+    alert= [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Book loan request denied." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

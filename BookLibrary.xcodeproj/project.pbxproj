@@ -39,7 +39,7 @@
 		E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* Home.m */; };
 		E3F10C6719109393006DF2BE /* LendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6619109393006DF2BE /* LendersViewController.m */; };
 		E3F10C6A1910A083006DF2BE /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C691910A083006DF2BE /* Review.m */; };
-		E3F10C6D1910A48A006DF2BE /* Reviews.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6C1910A48A006DF2BE /* Reviews.m */; };
+		E3F10C6D1910A48A006DF2BE /* BookReviews.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6C1910A48A006DF2BE /* BookReviews.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,8 +107,8 @@
 		E3F10C6619109393006DF2BE /* LendersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LendersViewController.m; sourceTree = "<group>"; };
 		E3F10C681910A083006DF2BE /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Review.h; path = Models/Review.h; sourceTree = "<group>"; };
 		E3F10C691910A083006DF2BE /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Review.m; path = Models/Review.m; sourceTree = "<group>"; };
-		E3F10C6B1910A48A006DF2BE /* Reviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reviews.h; sourceTree = "<group>"; };
-		E3F10C6C1910A48A006DF2BE /* Reviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reviews.m; sourceTree = "<group>"; };
+		E3F10C6B1910A48A006DF2BE /* BookReviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReviews.h; sourceTree = "<group>"; };
+		E3F10C6C1910A48A006DF2BE /* BookReviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookReviews.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,12 +254,17 @@
 				E3B5C777190EC464006760EE /* BookDetailTabController.m */,
 				E3F10C6519109393006DF2BE /* LendersViewController.h */,
 				E3F10C6619109393006DF2BE /* LendersViewController.m */,
+<<<<<<< HEAD
 				E3F10C6B1910A48A006DF2BE /* Reviews.h */,
 				E3F10C6C1910A48A006DF2BE /* Reviews.m */,
 				1112EFA7191860BE005BCD39 /* AccountSettings.h */,
 				1112EFA8191860CD005BCD39 /* AccountSettings.m */,
 				11B7ADC31918696E00B45A58 /* AccountDetails.h */,
 				11B7ADC41918696E00B45A58 /* AccountDetails.m */,
+=======
+				E3F10C6B1910A48A006DF2BE /* BookReviews.h */,
+				E3F10C6C1910A48A006DF2BE /* BookReviews.m */,
+>>>>>>> FETCH_HEAD
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -380,8 +385,12 @@
 				E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */,
 				E308DB4118F986FD005AA4D7 /* Registration.m in Sources */,
 				E38ACB3318FCE707002C110D /* BookDetails.m in Sources */,
+<<<<<<< HEAD
 				11B7ADC51918696E00B45A58 /* AccountDetails.m in Sources */,
 				E3F10C6D1910A48A006DF2BE /* Reviews.m in Sources */,
+=======
+				E3F10C6D1910A48A006DF2BE /* BookReviews.m in Sources */,
+>>>>>>> FETCH_HEAD
 				E3656A5E1905642A0084A562 /* Book.m in Sources */,
 				E3656A571904826C0084A562 /* LoginViewController.m in Sources */,
 				E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */,
