@@ -12,7 +12,8 @@
 
 @property NSString *firstName;
 @property NSString *lastName;
-@property NSString *cityState;
+@property NSString *city;
+@property NSString *state;
 @property NSString *emailAddress;
 @property NSString *password;
 

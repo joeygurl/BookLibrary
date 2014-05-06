@@ -8,30 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "Book.h"
-#import "User.h"
-#import "Review.h"
 #import "RESTService.h"
 
-
 @interface BookManager : NSObject
-typedef enum
+typedef enum bookStateTypes
 {
     MY_BOOKS=0,
     LOANED_BOOKS,
     BORROWED_BOOKS,
-    PENDING_REQUEST_BOOKS,
-    ADD_BOOK
+    PENDING_REQUEST_BOOKS
 }BookState;
 
 -(NSString *)add:(Book *)book;
 -(NSString *)remove:(Book *)book;
--(NSString *)markReturned:(Book *)book;
--(NSString *)approveLoan: (Book *)book;
--(NSString *)denyLoan: (Book *)book;
-
--(NSMutableArray *) getBooks: (BookState)bookState;
+-(NSMutableArray *) getBooks: (int)bookState;
 -(NSMutableArray *) getReviews:(Book *)forBook;
 -(NSMutableArray *) getBooksFromGoogle:(NSString *) searchText;
--(NSMutableArray *) getLenders:(Book *)forBook;
 
 @end

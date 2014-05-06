@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Book.h"
-#import "RESTHelpers/BookManager.h"
 
 @interface BookDetailTabController : UITabBarController
 @property (strong, nonatomic) Book *bookDetail;
 @property (strong, nonatomic) NSMutableArray *bookReviews;
-@property BookState currentView;
+@property BOOL isMyBook;
 @end

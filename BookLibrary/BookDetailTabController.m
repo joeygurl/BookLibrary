@@ -13,10 +13,7 @@
 
 -(void)viewDidLoad
 {
-    if (self.currentView==ADD_BOOK)
-    {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
+
 }
 
 

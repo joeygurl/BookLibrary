@@ -10,8 +10,6 @@
 
 @interface Book : NSObject
 
-@property int bId;
-@property int bookId;
 @property NSString *isbn;
 @property NSString *title;
 @property NSString *author;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookReviews : UITableViewController
+@interface Reviews : UITableViewController
 
 @end

@@ -36,11 +36,11 @@
     
     User *user=[[User alloc]init];
     
-    user.emailAddress= _txtEmail.text;
-    user.firstName=_txtFirstname.text;
-    user.lastName=_txtLastname.text;
-    user.cityState=_txtCityState.text;
-    user.password=_txtPassword.text;
+    user.emailAddress= _txtEmail;
+    user.firstName=_txtFirstname;
+    user.lastName=_txtLastname;
+    user.city=_txtCity;
+    user.password=_txtPassword;
     
     
     [account register:user];

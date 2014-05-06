@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RESTHelpers/BookManager.h"
+
 
 @interface MyBookSearch : UITableViewController<UISearchBarDelegate,UISearchDisplayDelegate>
 
-@property BookState bookState;
+@property int bookState;
 
 -(IBAction)unwindMyBookSearchController:(UIStoryboardSegue *)unwindSegue;
 @end

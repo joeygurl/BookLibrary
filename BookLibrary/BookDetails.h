@@ -15,14 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genreLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *userLabelCaption;
-@property (weak, nonatomic) IBOutlet UILabel *userLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabelCaption;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIButton *addRemoveButton;
+@property (weak, nonatomic) IBOutlet UIButton *rateButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *topButton;
-@property (weak, nonatomic) IBOutlet UIButton *bottomButton;
-
-- (IBAction)topButtonHandler;
-- (IBAction)bottomButtonHandler;
+- (IBAction)addRemoveBook;
 @end

@@ -10,6 +10,6 @@
 
 @implementation User
 
-@synthesize firstName, lastName, cityState, emailAddress, password;
+@synthesize firstName, lastName, city, state, emailAddress, password;
 
 @end

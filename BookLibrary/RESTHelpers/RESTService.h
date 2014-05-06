@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Book.h"
+#import "User.h"
 
 @interface RESTService : NSObject
 -(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method;
--(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method andBody:(NSString *)body;
 
 @end

@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Models/Book.h"
-#import "RESTHelpers/BookManager.h"
 
 @interface LendersViewController : UITableViewController
 
