@@ -16,6 +16,8 @@
 
 @implementation LoginViewController
 
+@synthesize txtEmail, txtPassword;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,12 +51,19 @@
 */
 
 - (IBAction)SignInClick:(id)sender {
-    Account *account=[[Account alloc]init];
-    
-    User *user=[[User alloc]init];
-    user.emailAddress= _txtEmail.text;
-    user.password=_txtPassword.text;
-    [account signIn:user];
+    if ([txtEmail.text isEqualToString:@""] && [txtPassword.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"" message:@"Please enter a username and password." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
+        Account *account=[[Account alloc]init];
+        User *user=[[User alloc]init];
+        user.emailAddress= txtEmail.text;
+        user.password=txtPassword.text;
+        [account signIn:user];
+    }
     
 }
 
