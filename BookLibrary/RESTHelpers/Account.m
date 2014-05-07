@@ -7,6 +7,7 @@
 //
 
 #import "Account.h"
+#import "ResponseObject.h"
 
 
 @implementation Account
@@ -17,7 +18,7 @@ NSString *_appyDaysServiceURL;
 -(id)init
 {
     _restService = [[RESTService alloc]init];
-    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/users.json?access_token=e5af08e17b1528828251510926dbbd21";
+    _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/users.json";
     return self;
 }
 
@@ -30,12 +31,23 @@ NSString *_appyDaysServiceURL;
 
 }
 
--(NSString *) signIn:(User *)user
+-(BOOL) signIn:(User *)user
 {
-    NSString *queryString = [NSString stringWithFormat:@"&email=%@&password=%@",user.emailAddress,user.password];
+    NSString *queryString = [NSString stringWithFormat:@"?email=%@&password=%@",user.emailAddress,user.password];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",_appyDaysServiceURL, queryString]];
-    [_restService getResponse:url withMethod:@"GET"];
-    return @""; //TO DO: What to return as response
+    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
+    if([response.response statusCode] >=200 && [response.response statusCode] < 300)
+    {
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:user.emailAddress forKey:@"USERNAME"];
+        [defaults setValue:response.responseDictionary[@"id"] forKey:@"USERID"];
+        [defaults setValue:response.responseDictionary[@"token"] forKey:@"ACCESS_TOKEN"];
+        [defaults synchronize];
+        return YES;
+    }
+    else
+        return NO;
 }
 
 -(NSString *) changePassword:(User *) user

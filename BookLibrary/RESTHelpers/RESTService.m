@@ -8,10 +8,11 @@
 
 #import "RESTService.h"
 
+
 @implementation RESTService
 
 
--(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method
+-(ResponseObject *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method
 {
     //init request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -24,10 +25,15 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-    return responseDict;
+    
+    ResponseObject *res = [[ResponseObject alloc]init];
+    res.response = response;
+    res.responseDictionary=responseDict;
+    res.error = error;
+    return res;
 }
 
--(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method andBody:(NSString *)body
+-(ResponseObject *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method andBody:(NSString *)body
 {
     //init request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -41,6 +47,11 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-    return responseDict;
+    
+    ResponseObject *res = [[ResponseObject alloc]init];
+    res.response = response;
+    res.responseDictionary=responseDict;
+    res.error = error;
+    return res;
 }
 @end

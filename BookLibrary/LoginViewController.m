@@ -51,9 +51,10 @@
 */
 
 - (IBAction)SignInClick:(id)sender {
+    UIAlertView *alert;
     if ([txtEmail.text isEqualToString:@""] && [txtPassword.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"" message:@"Please enter a username and password." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        alert=[[UIAlertView alloc] initWithTitle:@"" message:@"Please enter a username and password." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     else
@@ -62,7 +63,14 @@
         User *user=[[User alloc]init];
         user.emailAddress= txtEmail.text;
         user.password=txtPassword.text;
-        [account signIn:user];
+        BOOL loginSucess = [account signIn:user];
+        if (loginSucess)
+            [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+        else
+        {
+            alert=[[UIAlertView alloc] initWithTitle:@"" message:@"Please enter a valid username and password." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
     }
     
 }
@@ -71,7 +79,11 @@
     [self.view endEditing:YES];
 }
 
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return  YES;
+}
 
 
 

@@ -11,6 +11,7 @@
 #import "User.h"
 #import "Review.h"
 #import "RESTService.h"
+#import "ResponseObject.h"
 
 
 @interface BookManager : NSObject

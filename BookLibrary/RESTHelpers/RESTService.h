@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ResponseObject.h"
 
 @interface RESTService : NSObject
--(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method;
--(NSDictionary *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method andBody:(NSString *)body;
+-(ResponseObject *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method;
+-(ResponseObject *)getResponse:(NSURL *)fromURL withMethod:(NSString *)method andBody:(NSString *)body;
 
 @end
