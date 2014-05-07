@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BookLibrary/RESTHelpers/Account.m"
-            timestampString = "421120265.988392"
+            filePath = "BookLibrary/Registration.m"
+            timestampString = "421130376.027267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-signIn:"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-RegistrationClicked:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookLibrary/Registration.m"
+            timestampString = "421130376.027267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-areAllFieldsFilled"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,9 +12,8 @@
 
 @interface Account : NSObject
 
--(NSString *) register:(User*) user;
+-(BOOL) register:(User*) user;
 -(BOOL) signIn:(User *)user;
--(NSString *) changePassword:(User *) user;
--(NSString *) updateProfile:(User *) user;
+-(BOOL) updateProfile:(User *) user;
 
 @end
