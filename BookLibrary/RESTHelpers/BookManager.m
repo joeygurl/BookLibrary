@@ -15,13 +15,15 @@ RESTService *_restService;
 NSString *_googleBooksServiceURL;
 NSString *_appyDaysServiceURL;
 NSString *_authorizationQueryString;
+NSUserDefaults *_defaults;
 
 -(id)init
 {
     _restService = [[RESTService alloc]init];
     _googleBooksServiceURL = @"http://booklibraryapi.herokuapp.com/api/books.json?access_token=e5af08e17b1528828251510926dbbd21";
     _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api";
-    _authorizationQueryString = @"access_token=ec5d6fac3ba37c3b8c5cbedfcb6c9cc8&user_id=0";
+    _defaults = [NSUserDefaults standardUserDefaults];
+    _authorizationQueryString = [NSString stringWithFormat:@"access_token=%@&user_id=%@",[_defaults valueForKey:@"ACCESS_TOKEN"], [_defaults valueForKey:@"USERID"]];
     return self;
 }
 
@@ -29,8 +31,11 @@ NSString *_authorizationQueryString;
 {
     NSString *s_url = @"/book_instances.json";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"POST" andBody:[self getBookParams:book andOwner:@"0"]]; //TO DO: PASS OWNER PROPERLY
-    return @""; //TO DO: What to return as response
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getBookParams:book andOwner:[NSString stringWithFormat:@"%@",[_defaults valueForKey:@"USERID"]]]];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Book added to your library.";
+    else
+        return @"Failed to add book to your library, try again later.";
 }
 
 -(NSString *)getBookParams:(Book *)book andOwner:(NSString *)owner
@@ -44,8 +49,11 @@ NSString *_authorizationQueryString;
 {
     NSString *s_url = [NSString stringWithFormat: @"/book_instances/%i.json", book.bId]; //TO DO: PASS BOOK INSTANCE PROPERLY
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"DELETE"];
-    return @""; //TO DO: What to return as response
+    ResponseObject *response = [_restService getResponse:url withMethod:@"DELETE"];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Book removed from your library.";
+    else
+        return @"Failed to remove book from your library, try again later.";
 }
 
 -(NSString *)markReturned:(Book *)book
@@ -53,8 +61,11 @@ NSString *_authorizationQueryString;
     NSString *queryString = @"";
     NSString *s_url = [NSString stringWithFormat:@"/loans/%@/return.json", book.title]; //TO DO: PASS PROPER PARAM
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"POST"];
-    return @""; //TO DO: What to return as response
+    ResponseObject *response  = [_restService getResponse:url withMethod:@"POST"];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Book marked as returned.";
+    else
+        return @"Failed to mark book as returned, try again later.";
 }
 
 -(NSString *)approveLoan: (Book *)book
@@ -62,8 +73,11 @@ NSString *_authorizationQueryString;
     NSString *queryString = @"";
     NSString *s_url = [NSString stringWithFormat:@"/loans/%@/approve.json", book.title]; //TO DO: PASS PROPER PARAM
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"POST"];
-    return @""; //TO DO: What to return as response
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST"];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Book marked as loaned.";
+    else
+        return @"Failed to mark book as loaned, try again later.";
 }
 
 -(NSString *)denyLoan: (Book *)book
@@ -71,8 +85,11 @@ NSString *_authorizationQueryString;
     NSString *queryString = @"";
     NSString *s_url = [NSString stringWithFormat:@"/loans/%@/deny.json", book.title]; //TO DO: PASS PROPER PARAM
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"POST"];
-    return @""; //TO DO: What to return as response
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST"];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Loan denied";
+    else
+        return @"Failed to deny loan, try again later.";
 }
 
 -(NSMutableArray *) getBooksFromGoogle:(NSString *)searchText
@@ -80,13 +97,13 @@ NSString *_authorizationQueryString;
     NSString *queryString = @"";
     queryString = [NSString stringWithFormat:@"&search_text=%@",[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",_googleBooksServiceURL, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     
     //NSArray *bookArray = [responseDict];
     NSMutableArray *bookList= [[NSMutableArray alloc]init];
     
     //parse dictionary
-    for(id retBook in responseDict){
+    for(id retBook in response.responseDictionary){
         //create book object & init
         Book *book = [[Book alloc] init];
         book.isbn = [retBook objectForKey: @"isbn_13"];
@@ -108,9 +125,9 @@ NSString *_authorizationQueryString;
     NSString *queryString = @"";
     NSString *s_url = @"";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     
-    NSArray *reviewArray = [responseDict objectForKey:@("")];
+    NSArray *reviewArray = [response.responseDictionary objectForKey:@("")];
     NSMutableArray *reviewList= [[NSMutableArray alloc]init];
     
     //parse dictionary
@@ -151,11 +168,11 @@ NSString *_authorizationQueryString;
     }
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     NSMutableArray *bookList= [[NSMutableArray alloc]init];
     
     //parse dictionary
-    for(NSDictionary *retBook in responseDict){
+    for(NSDictionary *retBook in response.responseDictionary){
         //create book object & init
         Book *book = [[Book alloc] init];
         book.title = @"title";//[retBook objectForKey:@"book_id"];
@@ -176,9 +193,9 @@ NSString *_authorizationQueryString;
     NSString *queryString = @"";
     NSString *s_url = @"";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    NSDictionary *responseDict = [_restService getResponse:url withMethod:@"GET"];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     
-    NSArray *userArray = [responseDict objectForKey:@("")];
+    NSArray *userArray = [response.responseDictionary objectForKey:@("")];
     NSMutableArray *lenderList= [[NSMutableArray alloc]init];
     
     //parse dictionary

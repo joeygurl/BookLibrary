@@ -10,6 +10,7 @@
 
 @interface User : NSObject
 
+@property int userId;
 @property NSString *firstName;
 @property NSString *lastName;
 @property NSString *cityState;

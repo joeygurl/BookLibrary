@@ -147,7 +147,6 @@
                                 </state>
                                 <connections>
                                     <action selector="SignInClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FsO-7c-Oyp"/>
-                                    <segue destination="drv-Mm-9FU" kind="modal" identifier="login_success" modalTransitionStyle="flipHorizontal" id="0PS-2C-mwt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMg-fi-0gv">
@@ -184,6 +183,7 @@
                         <outlet property="txtEmail" destination="58x-yM-Qdn" id="ARM-eV-mqD"/>
                         <outlet property="txtPassword" destination="cgZ-nc-a4J" id="Mzu-4T-C5H"/>
                         <outletCollection property="txtPassword" destination="cgZ-nc-a4J" id="onl-l5-zma"/>
+                        <segue destination="drv-Mm-9FU" kind="modal" identifier="loginSuccess" modalTransitionStyle="flipHorizontal" id="vjn-fu-n1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -193,7 +193,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1459" y="-707"/>
+            <point key="canvasLocation" x="-1364" y="-707"/>
         </scene>
         <!--Password Help-->
         <scene sceneID="k5B-xF-enX">
@@ -1384,6 +1384,7 @@
         <scene sceneID="le8-iI-LbG">
             <objects>
                 <navigationController definesPresentationContext="YES" id="drv-Mm-9FU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Kf9-e5-lJt"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3eC-LO-zdG">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>

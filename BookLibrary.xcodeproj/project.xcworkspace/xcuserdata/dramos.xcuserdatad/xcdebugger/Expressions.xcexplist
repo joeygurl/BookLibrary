@@ -6,6 +6,14 @@
          contextName = "-[MyBookSearch tableView:cellForRowAtIndexPath:]:MyBookSearch.m">
       </ContextState>
       <ContextState
+         contextName = "-[MyBookSearch tableView:numberOfRowsInSection:]:MyBookSearch.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[_myBookArray count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[BookDetailTabController viewDidLoad]:BookDetailTabController.m">
          <PersistentStrings>
             <PersistentString
@@ -17,14 +25,6 @@
          contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
       </ContextState>
       <ContextState
-         contextName = "-[MyBookSearch tableView:numberOfRowsInSection:]:MyBookSearch.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[_myBookArray count]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
       </ContextState>
       <ContextState
@@ -32,6 +32,14 @@
          <PersistentStrings>
             <PersistentString
                value = "[NSURL URLWithString:[NSString stringWithFormat:@&quot;%@%@&quot;,_googleBooksServiceURL, queryString]]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Account signIn:]:Account.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[defaults objectForKey:@&quot;ACCESS_TOKEN&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

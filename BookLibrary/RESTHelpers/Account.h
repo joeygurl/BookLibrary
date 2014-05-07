@@ -13,7 +13,7 @@
 @interface Account : NSObject
 
 -(NSString *) register:(User*) user;
--(NSString *) signIn:(User *)user;
+-(BOOL) signIn:(User *)user;
 -(NSString *) changePassword:(User *) user;
 -(NSString *) updateProfile:(User *) user;
 
