@@ -14,21 +14,33 @@
 
 RESTService *_restService;
 NSString *_appyDaysServiceURL;
+NSString *_authorizationQueryString;
+NSUserDefaults *_defaults;
 
 -(id)init
 {
     _restService = [[RESTService alloc]init];
     _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/users.json";
+    _authorizationQueryString = [NSString stringWithFormat:@"access_token=%@",[_defaults valueForKey:@"ACCESS_TOKEN"]];
+
     return self;
 }
 
--(NSString *) register:(User*) user
+-(BOOL) register:(User*) user
 {
-    NSString *queryString = @"";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
-    [_restService getResponse:url withMethod:@"POST"];
-    return @""; //TO DO: What to return as response
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",_appyDaysServiceURL]];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getRegistrationParams:user]];
+    if([response.response statusCode] >=200 && [response.response statusCode] < 300)
+        return YES;
+    else
+        return NO;
+}
 
+-(NSString *)getRegistrationParams:(User *)user
+{
+    NSString *params;
+    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
+    return params;
 }
 
 -(BOOL) signIn:(User *)user
@@ -50,20 +62,16 @@ NSString *_appyDaysServiceURL;
         return NO;
 }
 
--(NSString *) changePassword:(User *) user
-{
-    NSString *queryString = @"";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
-    [_restService getResponse:url withMethod:@"UPDATE"];
-    return @""; //TO DO: What to return as response
-}
 
--(NSString *) updateProfile:(User *) user
+-(BOOL) updateProfile:(User *) user
 {
-    NSString *queryString = @"";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",queryString]];
-    [_restService getResponse:url withMethod:@"UPDATE"];
-    return @""; //TO DO: What to return as response
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://booklibraryapi.herokuapp.com/api/users/%@.json",[_defaults valueForKey:@"USERID"]]];
+    NSString *params = [NSString stringWithFormat:@"%@&%@",_authorizationQueryString, [self getRegistrationParams:user]];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"PUT" andBody:params];
+    if([response.response statusCode] >=200 && [response.response statusCode] < 300)
+        return YES;
+    else
+        return NO;
 }
 
 

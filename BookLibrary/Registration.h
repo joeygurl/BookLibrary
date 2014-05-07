@@ -15,7 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtLastname;
 @property (weak, nonatomic) IBOutlet UITextField *txtCityState;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UITextField *txtConfirmPassword;
+
 - (IBAction)RegistrationClicked:(id)sender;
+- (IBAction)CancelClicked:(id)sender;
+
 - (IBAction)backgroundTap:(id)sender;
 
 

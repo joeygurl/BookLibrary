@@ -36,6 +36,7 @@
 		E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEC2190C05C000F1BD18 /* RESTService.m */; };
 		E3B5C778190EC464006760EE /* BookDetailTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5C777190EC464006760EE /* BookDetailTabController.m */; };
 		E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* Home.m */; };
+		E3DE97971919F15C007527AF /* AccountSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DE97961919F15C007527AF /* AccountSettings.m */; };
 		E3F10C6719109393006DF2BE /* LendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6619109393006DF2BE /* LendersViewController.m */; };
 		E3F10C6A1910A083006DF2BE /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C691910A083006DF2BE /* Review.m */; };
 		E3F10C6D1910A48A006DF2BE /* BookReviews.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6C1910A48A006DF2BE /* BookReviews.m */; };
@@ -100,6 +101,8 @@
 		E3B5C777190EC464006760EE /* BookDetailTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailTabController.m; sourceTree = "<group>"; };
 		E3DBDAF118F9A3F000B7D2D7 /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
 		E3DBDAF218F9A3F000B7D2D7 /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
+		E3DE97951919F15C007527AF /* AccountSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettings.h; sourceTree = "<group>"; };
+		E3DE97961919F15C007527AF /* AccountSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSettings.m; sourceTree = "<group>"; };
 		E3F10C6519109393006DF2BE /* LendersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LendersViewController.h; sourceTree = "<group>"; };
 		E3F10C6619109393006DF2BE /* LendersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LendersViewController.m; sourceTree = "<group>"; };
 		E3F10C681910A083006DF2BE /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Review.h; path = Models/Review.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				E3F10C6619109393006DF2BE /* LendersViewController.m */,
 				E3F10C6B1910A48A006DF2BE /* BookReviews.h */,
 				E3F10C6C1910A48A006DF2BE /* BookReviews.m */,
+				E3DE97951919F15C007527AF /* AccountSettings.h */,
+				E3DE97961919F15C007527AF /* AccountSettings.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				E38ACB3318FCE707002C110D /* BookDetails.m in Sources */,
 				E3F10C6D1910A48A006DF2BE /* BookReviews.m in Sources */,
 				E3656A5E1905642A0084A562 /* Book.m in Sources */,
+				E3DE97971919F15C007527AF /* AccountSettings.m in Sources */,
 				E3656A571904826C0084A562 /* LoginViewController.m in Sources */,
 				E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */,
 				E3656A581904826C0084A562 /* MyLibrary.m in Sources */,
