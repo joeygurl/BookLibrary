@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PasswordHelp : UIViewController
+- (IBAction)OnClickReset:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *txtEmailAddress;
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -130,6 +130,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="OnClickReset:" destination="5M4-yh-nZ2" eventType="touchUpInside" id="VJH-33-Y0o"/>
                                     <action selector="handleReset:" destination="5M4-yh-nZ2" eventType="touchUpInside" id="5qj-se-CM2"/>
                                 </connections>
                             </button>
@@ -178,6 +179,7 @@
                         <outlet property="continueButton" destination="T0a-jY-dgp" id="SRl-Z8-Sc1"/>
                         <outlet property="emailTextField" destination="vIp-q6-gIC" id="f9i-Sa-apd"/>
                         <outlet property="resetPasswordButton" destination="acN-2c-MWQ" id="CqW-B1-iBV"/>
+                        <outlet property="txtEmailAddress" destination="vIp-q6-gIC" id="hVS-lM-Y5I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSP-1M-zP9" userLabel="First Responder" sceneMemberID="firstResponder"/>

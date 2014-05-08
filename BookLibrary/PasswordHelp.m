@@ -5,8 +5,10 @@
 //  Created by Diorelle Ramos on 4/10/14.
 //  Copyright (c) 2014 Diorelle Ramos. All rights reserved.
 //
-
+#import "Account.h"
+#import "RESTHelpers/RESTService.h"
 #import "PasswordHelp.h"
+
 
 @interface PasswordHelp ()
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
@@ -43,4 +45,24 @@
     self.continueButton.hidden = false;
     self.checkEmailLabel.hidden = false;
 }
+- (IBAction)OnClickReset:(id)sender {
+    
+        UIAlertView *alert;
+        if ([_txtEmailAddress.text isEqualToString:@""])
+        {
+            alert=[[UIAlertView alloc] initWithTitle:@"" message:@"Please enter an email address." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+        else
+        {
+            Account *account=[[Account alloc]init];
+            User *user=[[User alloc]init];
+            user.emailAddress= _txtEmailAddress.text;
+           //call rest function in Account.h
+            //Add if/else for success/failure returned by the reset function
+        }
+    
+
+}
 @end
+
