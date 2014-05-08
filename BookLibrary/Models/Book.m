@@ -10,7 +10,7 @@
 
 @implementation Book
 
-@synthesize bId, bookId, isbn, title, author, imageLink, genres, rating, reviews;
+@synthesize bId, bookId, isbn, title, author, imageLink, genres, rating, review;
 
 
 @end

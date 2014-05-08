@@ -890,7 +890,7 @@
                     <navigationItem key="navigationItem" id="XuP-5I-A7M">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="NEM-7A-fgI">
                             <connections>
-                                <segue destination="Q6r-gg-L7U" kind="push" id="MBt-kw-b0z"/>
+                                <segue destination="Q6r-gg-L7U" kind="push" identifier="review" id="MBt-kw-b0z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1154,10 +1154,10 @@
             </objects>
             <point key="canvasLocation" x="2768" y="-903"/>
         </scene>
-        <!--View Controller - Add Review/Rating-->
+        <!--Add Review - Add Review/Rating-->
         <scene sceneID="XHb-2K-8ZS">
             <objects>
-                <viewController id="Q6r-gg-L7U" sceneMemberID="viewController">
+                <viewController id="Q6r-gg-L7U" customClass="AddReview" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RAV-EJ-31X"/>
                         <viewControllerLayoutGuide type="bottom" id="h3C-GL-34l"/>
@@ -1173,10 +1173,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FgI-s5-R4y">
-                                <rect key="frame" x="102" y="75" width="29" height="30"/>
+                                <rect key="frame" x="83" y="75" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="/ 10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3w-TY-PxU">
                                 <rect key="frame" x="145" y="79" width="30" height="21"/>
@@ -1190,20 +1190,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McR-p0-k6B">
-                                <rect key="frame" x="15" y="172" width="293" height="197"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4z1-RM-PcZ">
+                                <rect key="frame" x="15" y="155" width="293" height="247"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.60392159219999997" green="0.83921575550000005" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Sne-9p-vMJ" appends="YES" id="GzY-E3-gXh"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Add Review/Rating" id="V0a-EC-gmD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="16F-g7-ZEx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="16F-g7-ZEx">
+                            <connections>
+                                <action selector="save:" destination="Q6r-gg-L7U" id="Xme-dA-f6a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="comments" destination="4z1-RM-PcZ" id="P76-x2-Fe2"/>
+                        <outlet property="rating" destination="FgI-s5-R4y" id="cCI-q8-0I9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGb-Bg-0qk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Sne-9p-vMJ">
+                    <connections>
+                        <action selector="BackgroundTap:" destination="Q6r-gg-L7U" id="q7L-cb-IcK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2257" y="-2292"/>
         </scene>

@@ -140,7 +140,7 @@ NSArray *filteredBookArray;
         Book *myBookDetail = [_bookArray objectAtIndex:indexPath.row];
         BookDetailTabController *bookDetailTabController = segue.destinationViewController;
         bookDetailTabController.bookDetail=myBookDetail;
-        bookDetailTabController.bookReviews = [myBookDetail reviews];
+        bookDetailTabController.bookReviews = [_bookManager getReviews:myBookDetail];
         bookDetailTabController.currentView = currentView;
         
         if (currentView==ADD_BOOK)

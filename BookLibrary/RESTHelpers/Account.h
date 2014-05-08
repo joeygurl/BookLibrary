@@ -15,5 +15,6 @@
 -(BOOL) register:(User*) user;
 -(BOOL) signIn:(User *)user;
 -(BOOL) updateProfile:(User *) user;
+-(BOOL) passwordReset:(User *) user;
 
 @end
