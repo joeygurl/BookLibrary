@@ -43,7 +43,6 @@ NSArray *filteredBookArray;
     [self setViewLabel];
     _bookManager = [[BookManager alloc] init];
     _myBookArray = [_bookManager getBooks: [self bookState] andSearchText:@""];
-    //[self initializeBookList];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -78,45 +77,6 @@ NSArray *filteredBookArray;
             
     }
 }
-
-- (void) initializeBookList
-{
-    Book *book1 = [[Book alloc] init];
-    book1.title = @"The Hunger Games";
-    book1.author = @"Suzanne Collins";
-    
-    Review *review1 = [[Review alloc] init];
-    review1.rating = 10;
-    review1.comment = @"This book is the bestest!";
-    review1.user = [[User alloc] init];
-    review1.user.firstName =  @"John";
-    review1.user.lastName = @"Doe";
-    
-    Review *review2 = [[Review alloc] init];
-    review2.rating = 9;
-    review2.comment = @"This book is gggggreaaatttt!";
-    review2.user = [[User alloc] init];
-    review2.user.firstName =  @"Tony";
-    review2.user.lastName = @"Tiger";
-    
-    NSMutableArray *reviewArray = [[NSMutableArray alloc]init];
-    [reviewArray addObject:review1];
-    [reviewArray addObject:review2];
-    
-    book1.reviews = [[NSMutableArray alloc] init];
-    [book1.reviews addObjectsFromArray:reviewArray];
-    
-    Book *book2 = [[Book alloc] init];
-    book2.title = @"White Belts";
-    book2.author = @"DeLeon Demicoli";
-    
-    _myBookArray = [[NSMutableArray alloc] init];
-    [_myBookArray addObject:book1];
-    [_myBookArray addObject:book2];
-    
-    
-}
-
 
 #pragma mark - Table view data source
 
@@ -204,7 +164,7 @@ NSArray *filteredBookArray;
         Book *myBookDetail = [_myBookArray objectAtIndex:indexPath.row];
         BookDetailTabController *bookDetailTabController = segue.destinationViewController;
         bookDetailTabController.bookDetail=myBookDetail;
-        bookDetailTabController.bookReviews = [myBookDetail reviews];
+        bookDetailTabController.bookReviews = [_bookManager getReviews:myBookDetail];
         bookDetailTabController.currentView = [self bookState];
        
         //Hide Lenders Tab

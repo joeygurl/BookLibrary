@@ -7,9 +7,10 @@
 //
 
 #import "BookDetailTabController.h"
+#import "AddReview.h"
 
 @implementation BookDetailTabController
-
+@synthesize bookDetail;
 
 -(void)viewDidLoad
 {
@@ -19,6 +20,14 @@
     }
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"review"]) {
+        AddReview *reviewController = segue.destinationViewController;
+        reviewController.book = bookDetail;
+       
+        
+    }
+}
 
 @end

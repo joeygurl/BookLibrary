@@ -30,6 +30,7 @@ typedef enum
 -(NSString *)markReturned:(Book *)book;
 -(NSString *)approveLoan: (Book *)book;
 -(NSString *)denyLoan: (Book *)book;
+-(NSString *)addReview:(Book *)book;
 
 -(NSMutableArray *) getBooks: (BookState)bookState andSearchText:(NSString *) searchText;
 -(NSMutableArray *) getReviews:(Book *)forBook;

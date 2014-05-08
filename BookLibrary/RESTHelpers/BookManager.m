@@ -92,6 +92,24 @@ NSUserDefaults *_defaults;
         return @"Failed to deny loan, try again later.";
 }
 
+-(NSString *)addReview:(Book *)book
+{
+    NSString *s_url = @"/reviews.json";
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getBookParams:book andOwner:[NSString stringWithFormat:@"%@",[_defaults valueForKey:@"USERID"]]]];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Review added for book.";
+    else
+        return @"Failed to save review, try again later.";
+}
+
+-(NSString *)getReviewParams:(Book *)book
+{
+    NSString *params;
+    params=[NSString stringWithFormat:@"book_id=%i&user_id=%@&rating=%i&comments=%@", book.bookId, [_defaults valueForKey:@"USERID"], book.rating, book.review];
+    return params;
+}
+
 -(NSMutableArray *) getBooksFromGoogle:(NSString *)searchText
 {
     NSString *queryString = @"";
@@ -123,20 +141,23 @@ NSUserDefaults *_defaults;
 -(NSMutableArray *) getReviews:(Book *)forBook
 {
     NSString *queryString = @"";
-    NSString *s_url = @"";
+    NSString *s_url = [NSString stringWithFormat:@"/reviews/%i.json", forBook.bookId];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     
-    NSArray *reviewArray = [response.responseDictionary objectForKey:@("")];
     NSMutableArray *reviewList= [[NSMutableArray alloc]init];
     
     //parse dictionary
-    for(NSDictionary *retReview in reviewArray){
+    for(NSDictionary *retReview in [response responseDictionary]){
         //create review object & init
         Review  *review = [[Review alloc] init];
-        review.rating = [[retReview objectForKey:@""]intValue];
-        review.comment = [retReview objectForKey:@""];
-        //review.user = [retReview objectForKey:@""];
+        review.rating = [[retReview objectForKey:@"rating"]intValue];
+        review.comment = [retReview objectForKey:@"comments"];
+        
+        NSDictionary *reviewerDictionary = [retReview objectForKey:@"user"];
+        review.user = [[User alloc]init];
+        review.user.firstName = [reviewerDictionary objectForKey:@"first_name"];
+        review.user.lastName = [reviewerDictionary objectForKey:@"last_name"];
         
         //add review object to review list
         [reviewList addObject:review];
@@ -189,6 +210,12 @@ NSUserDefaults *_defaults;
         book.isbn = [bookDetailsDictionary objectForKey:@"isbn"];
         book.bId = [[retBook objectForKey:@"id"] integerValue];
         book.bookId = [[retBook objectForKey:@"book_id"] integerValue];
+        
+        NSDictionary *ownerDictionary = [retBook objectForKey:@"user"];
+        book.lender =  [[User alloc]init];
+        book.lender.firstName = [ownerDictionary objectForKey:@"first_name"];
+        book.lender.lastName = [ownerDictionary objectForKey:@"last_name"];
+        book.lender.cityState =[ownerDictionary objectForKey:@"city_state_str"];
         
         if (bookState==PENDING_REQUEST_BOOKS || bookState==LOANED_BOOKS) {
             NSDictionary *borrowerDictionary = [retBook objectForKey:@"borrower"];

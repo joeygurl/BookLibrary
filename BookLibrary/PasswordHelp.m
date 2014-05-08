@@ -58,8 +58,7 @@
             Account *account=[[Account alloc]init];
             User *user=[[User alloc]init];
             user.emailAddress= _txtEmailAddress.text;
-           //call rest function in Account.h
-            //Add if/else for success/failure returned by the reset function
+            [account passwordReset:user];
         }
     
 

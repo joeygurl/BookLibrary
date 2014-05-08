@@ -19,9 +19,10 @@
 @property NSString *imageLink;
 @property NSString *genres;
 
+@property User *lender;
 @property LoanDetail *loanDetail;
 
 @property int rating;
-@property NSMutableArray *reviews;
+@property NSString *review;
 
 @end
