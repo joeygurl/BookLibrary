@@ -7,6 +7,8 @@
 //
 
 #import "Home.h"
+#import "BookSearch.h"
+#import "BookManager.h"
 
 @interface Home (){
 
@@ -42,7 +44,7 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -50,7 +52,12 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"borrow"]) {
+        BookSearch *bookSearch = segue.destinationViewController;
+        bookSearch.currentView = BORROW_A_BOOK;
+        
+    }
 }
-*/
+
 
 @end

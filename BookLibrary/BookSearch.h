@@ -10,6 +10,6 @@
 #import "Book.h"
 #import "BookManager.h"
 
-@interface GoogleBooksSearch : UITableViewController<UISearchBarDelegate>
-
+@interface BookSearch : UITableViewController<UISearchBarDelegate>
+@property BookState currentView;
 @end
