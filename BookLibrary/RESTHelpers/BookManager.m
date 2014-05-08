@@ -146,7 +146,7 @@ NSUserDefaults *_defaults;
 
 }
 
--(NSMutableArray *) getBooks:(BookState)bookState
+-(NSMutableArray *) getBooks:(BookState)bookState andSearchText:(NSString *)searchText
 {
     NSString *queryString = @"";
     NSString *s_url = @"";
@@ -154,6 +154,12 @@ NSUserDefaults *_defaults;
         case MY_BOOKS:
             s_url=@"/book_instances.json";
             break;
+        case BORROW_A_BOOK:
+        {
+            s_url=@"/book_instances.json";
+            queryString = [NSString stringWithFormat:@"&search_text=%@",[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            break;
+        }
         case LOANED_BOOKS:
             s_url=@"/loans/lent.json";
             break;

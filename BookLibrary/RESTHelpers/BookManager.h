@@ -21,7 +21,8 @@ typedef enum
     LOANED_BOOKS,
     BORROWED_BOOKS,
     PENDING_REQUEST_BOOKS,
-    ADD_BOOK
+    ADD_BOOK,
+    BORROW_A_BOOK
 }BookState;
 
 -(NSString *)add:(Book *)book;
@@ -30,7 +31,7 @@ typedef enum
 -(NSString *)approveLoan: (Book *)book;
 -(NSString *)denyLoan: (Book *)book;
 
--(NSMutableArray *) getBooks: (BookState)bookState;
+-(NSMutableArray *) getBooks: (BookState)bookState andSearchText:(NSString *) searchText;
 -(NSMutableArray *) getReviews:(Book *)forBook;
 -(NSMutableArray *) getBooksFromGoogle:(NSString *) searchText;
 -(NSMutableArray *) getLenders:(Book *)forBook;

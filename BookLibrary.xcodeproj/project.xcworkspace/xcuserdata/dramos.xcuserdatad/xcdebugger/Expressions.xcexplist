@@ -25,6 +25,14 @@
          contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
       </ContextState>
       <ContextState
+         contextName = "-[BookSearch prepareForSegue:sender:]:BookSearch.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
       </ContextState>
       <ContextState

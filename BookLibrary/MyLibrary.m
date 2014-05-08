@@ -7,6 +7,7 @@
 //
 
 #import "MyLibrary.h"
+#import "BookSearch.h"
 #import "MyBookSearch.h"
 #import "RESTHelpers/BookManager.h"
 
@@ -57,6 +58,10 @@
     }
     else if ([segue.identifier isEqualToString:@"pending"]){
         myBookSearch.bookState = PENDING_REQUEST_BOOKS;
+    }
+    else if ([segue.identifier isEqualToString:@"addBook"]){
+        BookSearch *bookSearch = segue.destinationViewController;
+        bookSearch.currentView = ADD_BOOK;
     }
     
    

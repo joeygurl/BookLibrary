@@ -6,17 +6,18 @@
 //  Copyright (c) 2014 Appy Days. All rights reserved.
 //
 
-#import "GoogleBooksSearch.h"
+#import "BookSearch.h"
 #import "BookDetailTabController.h"
 
-@interface GoogleBooksSearch ()
+@interface BookSearch ()
 {
     NSMutableArray *_bookArray;
     BookManager *_bookManager;
 }
 @end
 
-@implementation GoogleBooksSearch
+@implementation BookSearch
+@synthesize currentView;
 NSArray *filteredBookArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,15 +32,8 @@ NSArray *filteredBookArray;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //_bookArray = [[NSMutableArray alloc] initWithObjects: @"Book1", @"Book2",nil];
     _bookManager = [[BookManager alloc] init];
+    [self  setViewLabel];
    }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -53,9 +47,20 @@ NSArray *filteredBookArray;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+- (void) setViewLabel
 {
-    //[self dismissViewControllerAnimated:true completion:nil];
+    switch([self currentView])
+    {
+        case ADD_BOOK:
+            self.navigationItem.title=@"Add a Book";
+            break;
+        case BORROW_A_BOOK:
+            self.navigationItem.title=@"Borrow a Book";
+            break;
+        default:
+            break;
+            
+    }
 }
 
 #pragma mark - Table view data source
@@ -84,7 +89,6 @@ NSArray *filteredBookArray;
     }
     
     Book *book = nil;
-    //if (tableView == self.searchDisplayController.searchResultsTableView && _bookArray != nil) {
     if (_bookArray != nil) {
         book = [_bookArray objectAtIndex:indexPath.row];
         cell.textLabel.text = book.title;
@@ -113,40 +117,15 @@ NSArray *filteredBookArray;
 }
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    _bookArray = [_bookManager getBooksFromGoogle:[searchBar text]];
+    if (currentView==ADD_BOOK)
+        _bookArray = [_bookManager getBooksFromGoogle:[searchBar text]];
+    else
+        _bookArray = [_bookManager getBooks:BORROW_A_BOOK andSearchText:[searchBar text]];
+    
     [self.searchDisplayController setActive:NO];
     [self.tableView reloadData];
 
 }
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -162,15 +141,18 @@ NSArray *filteredBookArray;
         BookDetailTabController *bookDetailTabController = segue.destinationViewController;
         bookDetailTabController.bookDetail=myBookDetail;
         bookDetailTabController.bookReviews = [myBookDetail reviews];
-        bookDetailTabController.currentView = ADD_BOOK;
+        bookDetailTabController.currentView = currentView;
         
+        if (currentView==ADD_BOOK)
+        {
         //Hide Lenders & Reviews Tab
-        NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:bookDetailTabController.viewControllers];
-        NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:1];
-        [indexes addIndex:2];
-        [viewControllers removeObjectsAtIndexes:indexes];
+            NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:bookDetailTabController.viewControllers];
+            NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndex:1];
+            [indexes addIndex:2];
+            [viewControllers removeObjectsAtIndexes:indexes];
         
-        [bookDetailTabController setViewControllers:viewControllers];
+            [bookDetailTabController setViewControllers:viewControllers];
+        }
        
     }
 }
