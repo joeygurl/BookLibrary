@@ -50,11 +50,12 @@ NSUserDefaults *_defaults;
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     if([response.response statusCode] >=200 && [response.response statusCode] < 300)
     {
+        NSDictionary *userDictionary = [response.responseDictionary objectForKey:@"user"];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setValue:user.emailAddress forKey:@"USERNAME"];
-        [defaults setValue:response.responseDictionary[@"id"] forKey:@"USERID"];
-        [defaults setValue:response.responseDictionary[@"token"] forKey:@"ACCESS_TOKEN"];
+        [defaults setValue:[userDictionary objectForKey:@"id"] forKey:@"USERID"];
+        [defaults setValue:[response.responseDictionary objectForKey:@"token"] forKey:@"ACCESS_TOKEN"];
         [defaults synchronize];
         return YES;
     }

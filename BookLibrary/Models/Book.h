@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LoanDetail.h"
 
 @interface Book : NSObject
 
@@ -17,6 +18,9 @@
 @property NSString *author;
 @property NSString *imageLink;
 @property NSString *genres;
+
+@property LoanDetail *loanDetail;
+
 @property int rating;
 @property NSMutableArray *reviews;
 

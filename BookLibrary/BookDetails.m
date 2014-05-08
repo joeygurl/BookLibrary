@@ -29,7 +29,9 @@ Book *_book;
     self.titleLabel.text= bookDetailTabController.bookDetail.title;
     self.authorLabel.text= bookDetailTabController.bookDetail.author;
     self.genreLabel.text=bookDetailTabController.bookDetail.genres;
-    
+   
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyyy"];
     
     switch (_currentView) {
         case ADD_BOOK:
@@ -41,23 +43,36 @@ Book *_book;
             [self.topButton setTitle:@"Remove" forState:UIControlStateNormal];
             break;
         case LOANED_BOOKS:
+        {
             [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:NO bb:YES];
             [self.topButton setTitle:@"Mark Returned" forState:UIControlStateNormal];
             [self.userLabelCaption setText:@"Loaned To:"];
+            [self.userLabel  setText:[NSString stringWithFormat:@"%@ %@",bookDetailTabController.bookDetail.loanDetail.borrower.firstName, bookDetailTabController.bookDetail.loanDetail.borrower.lastName]];
+            
             [self.dateLabelCaption setText:@"Loaned On:"];
+            [self.dateLabel setText:[formatter stringFromDate:bookDetailTabController.bookDetail.loanDetail.lentDate]];
+            
             break;
+        }
         case BORROWED_BOOKS:
             [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:YES bb:YES];
             [self.userLabelCaption setText:@"Borrowed From:"];
             [self.dateLabelCaption setText:@"Borrowed On:"];
             break;
         case PENDING_REQUEST_BOOKS:
+        {
             [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:NO bb:NO];
             [self.userLabelCaption setText:@"Requested By:"];
+            [self.userLabel  setText:[NSString stringWithFormat:@"%@ %@",bookDetailTabController.bookDetail.loanDetail.borrower.firstName, bookDetailTabController.bookDetail.loanDetail.borrower.lastName]];
+            
             [self.dateLabelCaption setText:@"Requested On:"];
+            
+            [self.dateLabel setText:[formatter stringFromDate:bookDetailTabController.bookDetail.loanDetail.requestedDate]];
+            
             [self.topButton setTitle:@"Lend" forState:UIControlStateNormal];
             [self.bottomButton setTitle:@"Deny" forState:UIControlStateNormal];
             break;
+        }
         default:
             break;
     }
