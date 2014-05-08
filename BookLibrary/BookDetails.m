@@ -35,13 +35,17 @@ Book *_book;
     
     switch (_currentView) {
         case ADD_BOOK:
+        {
             [self setControlVisibility:YES ul:YES dlc:YES dl:YES tb:NO bb:YES];
             [self.topButton setTitle:@"Add" forState:UIControlStateNormal];
             break;
+        }
         case MY_BOOKS:
+        {
             [self setControlVisibility:YES ul:YES dlc:YES dl:YES tb:NO bb:YES];
             [self.topButton setTitle:@"Remove" forState:UIControlStateNormal];
             break;
+        }
         case LOANED_BOOKS:
         {
             [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:NO bb:YES];
@@ -55,9 +59,11 @@ Book *_book;
             break;
         }
         case BORROWED_BOOKS:
+        {
             [self setControlVisibility:NO ul:NO dlc:NO dl:NO tb:YES bb:YES];
             [self.userLabelCaption setText:@"Borrowed From:"];
             [self.dateLabelCaption setText:@"Borrowed On:"];
+        }
             break;
         case PENDING_REQUEST_BOOKS:
         {
@@ -71,6 +77,11 @@ Book *_book;
             
             [self.topButton setTitle:@"Lend" forState:UIControlStateNormal];
             [self.bottomButton setTitle:@"Deny" forState:UIControlStateNormal];
+            break;
+        }
+        case BORROW_A_BOOK:
+        {
+            [self setControlVisibility:YES ul:YES dlc:YES dl:YES tb:YES bb:YES];
             break;
         }
         default:

@@ -42,7 +42,7 @@ NSArray *filteredBookArray;
     
     [self setViewLabel];
     _bookManager = [[BookManager alloc] init];
-    _myBookArray = [_bookManager getBooks: [self bookState]];
+    _myBookArray = [_bookManager getBooks: [self bookState] andSearchText:@""];
     //[self initializeBookList];
     
     // Uncomment the following line to preserve selection between presentations.
