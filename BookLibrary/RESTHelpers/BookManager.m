@@ -47,7 +47,7 @@ NSUserDefaults *_defaults;
 
 -(NSString *)remove:(Book *)book
 {
-    NSString *s_url = [NSString stringWithFormat: @"/book_instances/%i.json", book.bId]; //TO DO: PASS BOOK INSTANCE PROPERLY
+    NSString *s_url = [NSString stringWithFormat: @"/book_instances/%i.json", book.bId]; 
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"DELETE"];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
@@ -59,7 +59,7 @@ NSUserDefaults *_defaults;
 -(NSString *)markReturned:(Book *)book
 {
     NSString *queryString = @"";
-    NSString *s_url = [NSString stringWithFormat:@"/loans/%@/return.json", book.title]; //TO DO: PASS PROPER PARAM
+    NSString *s_url = [NSString stringWithFormat:@"/loans/%i/return.json", book.loanDetail.loanId];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
     ResponseObject *response  = [_restService getResponse:url withMethod:@"POST"];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
@@ -71,7 +71,7 @@ NSUserDefaults *_defaults;
 -(NSString *)approveLoan: (Book *)book
 {
     NSString *queryString = @"";
-    NSString *s_url = [NSString stringWithFormat:@"/loans/%@/approve.json", book.title]; //TO DO: PASS PROPER PARAM
+    NSString *s_url = [NSString stringWithFormat:@"/loans/%i/approve.json", book.loanDetail.loanId];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"POST"];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
@@ -83,7 +83,7 @@ NSUserDefaults *_defaults;
 -(NSString *)denyLoan: (Book *)book
 {
     NSString *queryString = @"";
-    NSString *s_url = [NSString stringWithFormat:@"/loans/%@/deny.json", book.title]; //TO DO: PASS PROPER PARAM
+    NSString *s_url = [NSString stringWithFormat:@"/loans/%i/deny.json", book.loanDetail.loanId]; //TO DO: PASS PROPER PARAM
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"POST"];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
@@ -161,7 +161,7 @@ NSUserDefaults *_defaults;
             s_url=@"/loans/borrowed.json";
             break;
         case PENDING_REQUEST_BOOKS:
-            s_url=@"/loans/request.json";
+            s_url=@"/loans/pending.json";
             break;
         default:
             break;
@@ -173,14 +173,27 @@ NSUserDefaults *_defaults;
     
     //parse dictionary
     for(NSDictionary *retBook in response.responseDictionary){
+        NSDictionary *bookDetailsDictionary = [retBook  objectForKey:@"book"];
+        
         //create book object & init
         Book *book = [[Book alloc] init];
-        book.title = @"title";//[retBook objectForKey:@"book_id"];
-        book.author = @"a";
-        book.genres = @"g";
-        book.isbn = @"i";
+        book.title = [bookDetailsDictionary objectForKey:@"title"];
+        book.author = [bookDetailsDictionary objectForKey:@"author"];
+        book.genres = [bookDetailsDictionary objectForKey:@"genre"];
+        book.isbn = [bookDetailsDictionary objectForKey:@"isbn"];
         book.bId = [[retBook objectForKey:@"id"] integerValue];
         book.bookId = [[retBook objectForKey:@"book_id"] integerValue];
+        
+        if (bookState==PENDING_REQUEST_BOOKS || bookState==LOANED_BOOKS) {
+            NSDictionary *borrowerDictionary = [retBook objectForKey:@"borrower"];
+            book.loanDetail = [[LoanDetail alloc]init];
+            book.loanDetail.loanId=[[retBook objectForKey:@"id"] integerValue];
+            book.loanDetail.borrower = [[User alloc]init];
+            book.loanDetail.borrower.firstName = [borrowerDictionary objectForKey:@"first_name"];
+            book.loanDetail.borrower.lastName = [borrowerDictionary objectForKey:@"last_name"];
+            book.loanDetail.requestedDate = [borrowerDictionary objectForKey:@"requested_at"];
+            book.loanDetail.lentDate = [borrowerDictionary objectForKey:@"lent_at"];
+        }
         
         //add book object to contact array
         [bookList addObject:book];
