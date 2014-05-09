@@ -236,21 +236,21 @@ NSUserDefaults *_defaults;
 
 -(NSMutableArray *) getLenders:(Book *)forBook
 {
-    NSString *queryString = @"";
-    NSString *s_url = @"";
+    NSString *queryString =[NSString stringWithFormat:@"search_text=%@",forBook.title];
+    NSString *s_url = @"/book_instances.json";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     
-    NSArray *userArray = [response.responseDictionary objectForKey:@("")];
+    NSArray *userArray = [response.responseDictionary objectForKey:@("user")];
     NSMutableArray *lenderList= [[NSMutableArray alloc]init];
     
     //parse dictionary
     for(NSDictionary *retUser in userArray){
         //create lender object & init
         User  *user = [[User alloc] init];
-        user.emailAddress = [retUser objectForKey:@""];
-        user.firstName = [retUser objectForKey:@""];
-        user.lastName = [retUser objectForKey:@""];
+        user.firstName = [retUser objectForKey:@"first_name"];
+        user.lastName = [retUser objectForKey:@"last_name"];
+        user.userId =[[response.responseDictionary objectForKey:@("user_id")] integerValue];
         
         //add user object to lender list
         [lenderList addObject:user];

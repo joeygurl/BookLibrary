@@ -600,8 +600,9 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dIs-ku-9RL">
                                                     <rect key="frame" x="138" y="7" width="177" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -624,7 +625,7 @@
                                                     <rect key="frame" x="138" y="7" width="177" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
