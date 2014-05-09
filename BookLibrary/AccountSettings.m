@@ -29,12 +29,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configureView];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)configureView
+{
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    txtEmailAddress.text = [defaults valueForKey:@"USERNAME"];
+    txtFirstName.text = [defaults valueForKey:@"FIRST_NAME"];
+    txtLastName.text = [defaults valueForKey:@"LAST_NAME"];
+    txtCityState.text = [defaults valueForKey:@"CITY_STATE"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +75,7 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         else
         {
-            alert=[[UIAlertView alloc] initWithTitle:@"Registration" message:@"Profile update failed, try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            alert=[[UIAlertView alloc] initWithTitle:@"Profile Update" message:@"Profile update failed, try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
     }

@@ -22,7 +22,7 @@ NSUserDefaults *_defaults;
     _restService = [[RESTService alloc]init];
     _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api/users.json";
     _authorizationQueryString = [NSString stringWithFormat:@"access_token=%@",[_defaults valueForKey:@"ACCESS_TOKEN"]];
-
+    _defaults = [NSUserDefaults standardUserDefaults];
     return self;
 }
 
@@ -39,7 +39,7 @@ NSUserDefaults *_defaults;
 -(NSString *)getRegistrationParams:(User *)user
 {
     NSString *params;
-    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
+    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password_digest=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
     return params;
 }
 
@@ -54,6 +54,9 @@ NSUserDefaults *_defaults;
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setValue:user.emailAddress forKey:@"USERNAME"];
+        [defaults setValue:[userDictionary objectForKey:@"first_name"] forKey:@"FIRST_NAME"];
+        [defaults setValue:[userDictionary objectForKey:@"last_name"] forKey:@"LAST_NAME"];
+        [defaults setValue:[userDictionary objectForKey:@"city_state_str"] forKey:@"CITY_STATE"];
         [defaults setValue:[userDictionary objectForKey:@"id"] forKey:@"USERID"];
         [defaults setValue:[response.responseDictionary objectForKey:@"token"] forKey:@"ACCESS_TOKEN"];
         [defaults synchronize];
