@@ -54,7 +54,7 @@ Book *_book;
             [self.userLabel  setText:[NSString stringWithFormat:@"%@ %@",bookDetailTabController.bookDetail.loanDetail.borrower.firstName, bookDetailTabController.bookDetail.loanDetail.borrower.lastName]];
             
             [self.dateLabelCaption setText:@"Loaned On:"];
-            [self.userLabel  setText:[NSString stringWithFormat:@"%@ %@",bookDetailTabController.bookDetail.loanDetail.borrower.firstName, bookDetailTabController.bookDetail.loanDetail.borrower.lastName]];
+            [self.dateLabel setText:[NSString stringWithFormat:@"%@", bookDetailTabController.bookDetail.loanDetail.lentDate]];
             
             break;
         }
@@ -64,7 +64,7 @@ Book *_book;
             [self.userLabelCaption setText:@"Borrowed From:"];
             [self.userLabel  setText:[NSString stringWithFormat:@"%@ %@",bookDetailTabController.bookDetail.lender.firstName, bookDetailTabController.bookDetail.lender.lastName]];
             [self.dateLabelCaption setText:@"Borrowed On:"];
-            [self.dateLabel setText:[formatter stringFromDate:bookDetailTabController.bookDetail.loanDetail.lentDate]];
+            [self.dateLabel setText:[NSString stringWithFormat:@"%@", bookDetailTabController.bookDetail.loanDetail.lentDate]];
         }
             break;
         case PENDING_REQUEST_BOOKS:
