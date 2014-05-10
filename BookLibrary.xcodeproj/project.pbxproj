@@ -43,6 +43,7 @@
 		E3F10C6719109393006DF2BE /* LendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6619109393006DF2BE /* LendersViewController.m */; };
 		E3F10C6A1910A083006DF2BE /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C691910A083006DF2BE /* Review.m */; };
 		E3F10C6D1910A48A006DF2BE /* BookReviews.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F10C6C1910A48A006DF2BE /* BookReviews.m */; };
+		E3FA1612191E617400AD4CEC /* Library-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E3FA1611191E617400AD4CEC /* Library-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		E3F10C691910A083006DF2BE /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Review.m; path = Models/Review.m; sourceTree = "<group>"; };
 		E3F10C6B1910A48A006DF2BE /* BookReviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookReviews.h; sourceTree = "<group>"; };
 		E3F10C6C1910A48A006DF2BE /* BookReviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookReviews.m; sourceTree = "<group>"; };
+		E3FA1611191E617400AD4CEC /* Library-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Library-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		E308DB3918F986E6005AA4D7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				E3FA1611191E617400AD4CEC /* Library-icon.png */,
 				E308DB3A18F986E6005AA4D7 /* dropdown.png */,
 			);
 			path = graphics;
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E308DB3B18F986E6005AA4D7 /* dropdown.png in Resources */,
+				E3FA1612191E617400AD4CEC /* Library-icon.png in Resources */,
 				E308DB1D18F98618005AA4D7 /* Images.xcassets in Resources */,
 				E308DB0F18F98618005AA4D7 /* InfoPlist.strings in Resources */,
 				E308DB1818F98618005AA4D7 /* Main.storyboard in Resources */,
