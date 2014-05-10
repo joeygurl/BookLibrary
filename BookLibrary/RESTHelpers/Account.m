@@ -71,7 +71,7 @@ NSUserDefaults *_defaults;
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://booklibraryapi.herokuapp.com/api/users/%@.json",[_defaults valueForKey:@"USERID"]]];
     NSString *params = [NSString stringWithFormat:@"%@&%@",_authorizationQueryString, [self getRegistrationParams:user]];
-    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:params];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"PUT" andBody:params];
     if([response.response statusCode] >=200 && [response.response statusCode] < 300)
         return YES;
     else

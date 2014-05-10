@@ -23,6 +23,7 @@
 		E308DB3B18F986E6005AA4D7 /* dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E308DB3A18F986E6005AA4D7 /* dropdown.png */; };
 		E308DB4018F986FD005AA4D7 /* PasswordHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */; };
 		E308DB4118F986FD005AA4D7 /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = E308DB3F18F986FD005AA4D7 /* Registration.m */; };
+		E31B25BC191DE86C00ADBAF7 /* LenderDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E31B25BB191DE86C00ADBAF7 /* LenderDetails.m */; };
 		E34231A8191B27AC0069E856 /* LoanDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = E34231A7191B27AC0069E856 /* LoanDetail.m */; };
 		E3656A571904826C0084A562 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A541904826C0084A562 /* LoginViewController.m */; };
 		E3656A581904826C0084A562 /* MyLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A561904826C0084A562 /* MyLibrary.m */; };
@@ -77,6 +78,8 @@
 		E308DB3D18F986FD005AA4D7 /* PasswordHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHelp.m; sourceTree = "<group>"; };
 		E308DB3E18F986FD005AA4D7 /* Registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registration.h; sourceTree = "<group>"; };
 		E308DB3F18F986FD005AA4D7 /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
+		E31B25BA191DE86C00ADBAF7 /* LenderDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LenderDetails.h; sourceTree = "<group>"; };
+		E31B25BB191DE86C00ADBAF7 /* LenderDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LenderDetails.m; sourceTree = "<group>"; };
 		E34231A6191B27AC0069E856 /* LoanDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoanDetail.h; path = Models/LoanDetail.h; sourceTree = "<group>"; };
 		E34231A7191B27AC0069E856 /* LoanDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoanDetail.m; path = Models/LoanDetail.m; sourceTree = "<group>"; };
 		E3656A531904826C0084A562 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				E3DE97961919F15C007527AF /* AccountSettings.m */,
 				E3E26D47191B4FAE008280DF /* AddReview.h */,
 				E3E26D48191B4FAE008280DF /* AddReview.m */,
+				E31B25BA191DE86C00ADBAF7 /* LenderDetails.h */,
+				E31B25BB191DE86C00ADBAF7 /* LenderDetails.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				E3F10C6D1910A48A006DF2BE /* BookReviews.m in Sources */,
 				E3656A5E1905642A0084A562 /* Book.m in Sources */,
 				E3DE97971919F15C007527AF /* AccountSettings.m in Sources */,
+				E31B25BC191DE86C00ADBAF7 /* LenderDetails.m in Sources */,
 				E3656A571904826C0084A562 /* LoginViewController.m in Sources */,
 				E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */,
 				E3656A581904826C0084A562 /* MyLibrary.m in Sources */,
