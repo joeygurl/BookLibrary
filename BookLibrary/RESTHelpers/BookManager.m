@@ -294,6 +294,7 @@ NSUserDefaults *_defaults;
         User  *user = [[User alloc] init];
         user.firstName = [retUser objectForKey:@"first_name"];
         user.lastName = [retUser objectForKey:@"last_name"];
+        user.cityState = [retUser objectForKey:@"city_state_str"];
         user.userId =[[bookInstance objectForKey:@("user_id")] integerValue];
         
         //add user object to lender list
