@@ -196,7 +196,7 @@ NSUserDefaults *_defaults;
             break;
         case BORROW_A_BOOK:
         {
-            s_url=@"/book_instances.json";
+            s_url=@"/books/available.json";
             queryString = [NSString stringWithFormat:@"&search_text=%@",[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
             auth = _authorizationQueryStringWithoutUserId;
             break;
@@ -218,40 +218,63 @@ NSUserDefaults *_defaults;
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     NSMutableArray *bookList= [[NSMutableArray alloc]init];
     
-    //parse dictionary
-    for(NSDictionary *retBook in response.responseDictionary){
-        NSDictionary *bookDetailsDictionary = [retBook  objectForKey:@"book"];
+    if(bookState==BORROW_A_BOOK) {
         
-        //create book object & init
-        Book *book = [[Book alloc] init];
-        book.title = [bookDetailsDictionary objectForKey:@"title"];
-        book.author = [bookDetailsDictionary objectForKey:@"author"];
-        book.genres = [bookDetailsDictionary objectForKey:@"genre"];
-        book.isbn = [bookDetailsDictionary objectForKey:@"isbn"];
-        book.bId = [[retBook objectForKey:@"id"] integerValue];
-        book.bookId = [[retBook objectForKey:@"book_id"] integerValue];
-        
-        NSDictionary *ownerDictionary = [retBook objectForKey:@"lender"];
-        book.lender =  [[User alloc]init];
-        book.lender.firstName = [ownerDictionary objectForKey:@"first_name"];
-        book.lender.lastName = [ownerDictionary objectForKey:@"last_name"];
-        book.lender.cityState =[ownerDictionary objectForKey:@"city_state_str"];
-       
-        
-        if (bookState==PENDING_REQUEST_BOOKS || bookState==LOANED_BOOKS || bookState==BORROWED_BOOKS) {
-            NSDictionary *borrowerDictionary = [retBook objectForKey:@"borrower"];
-            book.loanDetail = [[LoanDetail alloc]init];
-            book.loanDetail.loanId=[[retBook objectForKey:@"id"] integerValue];
-            book.loanDetail.borrower = [[User alloc]init];
-            book.loanDetail.borrower.firstName = [borrowerDictionary objectForKey:@"first_name"];
-            book.loanDetail.borrower.lastName = [borrowerDictionary objectForKey:@"last_name"];
-            book.loanDetail.requestedDate = [borrowerDictionary objectForKey:@"requested_at"];
-            book.loanDetail.lentDate = [retBook objectForKey:@"lent_at"];
+        //parse dictionary
+        for(NSDictionary *retBook in response.responseDictionary){
+            
+            //create book object & init
+            Book *book = [[Book alloc] init];
+            book.title = [retBook objectForKey:@"title"];
+            book.author = [retBook objectForKey:@"author"];
+            book.genres = [retBook objectForKey:@"genre"];
+            book.isbn = [retBook objectForKey:@"isbn"];
+            book.bookId = [[retBook objectForKey:@"id"] integerValue];
+            
+            [bookList addObject:book];
         }
         
-        //add book object to contact array
-        [bookList addObject:book];
     }
+    else {
+        
+        //parse dictionary
+        for(NSDictionary *retBook in response.responseDictionary){
+            NSDictionary *bookDetailsDictionary = [retBook  objectForKey:@"book"];
+            
+            //create book object & init
+            Book *book = [[Book alloc] init];
+            book.title = [bookDetailsDictionary objectForKey:@"title"];
+            book.author = [bookDetailsDictionary objectForKey:@"author"];
+            book.genres = [bookDetailsDictionary objectForKey:@"genre"];
+            book.isbn = [bookDetailsDictionary objectForKey:@"isbn"];
+            book.bId = [[retBook objectForKey:@"id"] integerValue];
+            book.bookId = [[retBook objectForKey:@"book_id"] integerValue];
+            
+            NSDictionary *ownerDictionary = [retBook objectForKey:@"lender"];
+            book.lender =  [[User alloc]init];
+            book.lender.firstName = [ownerDictionary objectForKey:@"first_name"];
+            book.lender.lastName = [ownerDictionary objectForKey:@"last_name"];
+            book.lender.cityState =[ownerDictionary objectForKey:@"city_state_str"];
+            
+            
+            if (bookState==PENDING_REQUEST_BOOKS || bookState==LOANED_BOOKS || bookState==BORROWED_BOOKS) {
+                NSDictionary *borrowerDictionary = [retBook objectForKey:@"borrower"];
+                book.loanDetail = [[LoanDetail alloc]init];
+                book.loanDetail.loanId=[[retBook objectForKey:@"id"] integerValue];
+                book.loanDetail.borrower = [[User alloc]init];
+                book.loanDetail.borrower.firstName = [borrowerDictionary objectForKey:@"first_name"];
+                book.loanDetail.borrower.lastName = [borrowerDictionary objectForKey:@"last_name"];
+                book.loanDetail.requestedDate = [borrowerDictionary objectForKey:@"requested_at"];
+                book.loanDetail.lentDate = [retBook objectForKey:@"lent_at"];
+            }
+            
+            //add book object to contact array
+            [bookList addObject:book];
+        }
+
+        
+    }
+    
     return bookList;
 }
 
