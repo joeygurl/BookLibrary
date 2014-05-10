@@ -37,6 +37,7 @@
 		E3B4AEC0190C022800F1BD18 /* BookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEBF190C022800F1BD18 /* BookManager.m */; };
 		E3B4AEC3190C05C000F1BD18 /* RESTService.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B4AEC2190C05C000F1BD18 /* RESTService.m */; };
 		E3B5C778190EC464006760EE /* BookDetailTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B5C777190EC464006760EE /* BookDetailTabController.m */; };
+		E3D9E25C191E638100CF97FA /* splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = E3D9E25B191E638100CF97FA /* splash2.png */; };
 		E3DBDAF318F9A3F000B7D2D7 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DBDAF218F9A3F000B7D2D7 /* Home.m */; };
 		E3DE97971919F15C007527AF /* AccountSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DE97961919F15C007527AF /* AccountSettings.m */; };
 		E3E26D49191B4FAE008280DF /* AddReview.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E26D48191B4FAE008280DF /* AddReview.m */; };
@@ -107,6 +108,7 @@
 		E3B4AEC2190C05C000F1BD18 /* RESTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESTService.m; path = RESTHelpers/RESTService.m; sourceTree = "<group>"; };
 		E3B5C776190EC464006760EE /* BookDetailTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailTabController.h; sourceTree = "<group>"; };
 		E3B5C777190EC464006760EE /* BookDetailTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailTabController.m; sourceTree = "<group>"; };
+		E3D9E25B191E638100CF97FA /* splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash2.png; sourceTree = "<group>"; };
 		E3DBDAF118F9A3F000B7D2D7 /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
 		E3DBDAF218F9A3F000B7D2D7 /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
 		E3DE97951919F15C007527AF /* AccountSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSettings.h; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		E308DB3918F986E6005AA4D7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				E3D9E25B191E638100CF97FA /* splash2.png */,
 				E3FA1611191E617400AD4CEC /* Library-icon.png */,
 				E308DB3A18F986E6005AA4D7 /* dropdown.png */,
 			);
@@ -374,6 +377,7 @@
 				E308DB3B18F986E6005AA4D7 /* dropdown.png in Resources */,
 				E3FA1612191E617400AD4CEC /* Library-icon.png in Resources */,
 				E308DB1D18F98618005AA4D7 /* Images.xcassets in Resources */,
+				E3D9E25C191E638100CF97FA /* splash2.png in Resources */,
 				E308DB0F18F98618005AA4D7 /* InfoPlist.strings in Resources */,
 				E308DB1818F98618005AA4D7 /* Main.storyboard in Resources */,
 			);
@@ -541,7 +545,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BookLibrary/BookLibrary-Prefix.pch";
 				INFOPLIST_FILE = "BookLibrary/BookLibrary-Info.plist";
@@ -554,7 +557,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BookLibrary/BookLibrary-Prefix.pch";
 				INFOPLIST_FILE = "BookLibrary/BookLibrary-Info.plist";
