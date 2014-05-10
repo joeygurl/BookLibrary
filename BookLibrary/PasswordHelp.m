@@ -44,6 +44,7 @@
     self.emailTextField.hidden = true;
     self.continueButton.hidden = false;
     self.checkEmailLabel.hidden = false;
+    [self.view endEditing:YES];
 }
 - (IBAction)OnClickReset:(id)sender {
     
@@ -63,5 +64,10 @@
     
 
 }
+
+- (IBAction)BackgroundTap:(id)sender {
+    [self.view endEditing:YES];
+}
+
 @end
 
