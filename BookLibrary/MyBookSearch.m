@@ -18,6 +18,7 @@
 {
     NSMutableArray *_myBookArray;
     BookManager *_bookManager;
+    UITableView *_tableView;
 }
 
 - (void) initializeButtonIconsOnRightNavBar;
@@ -78,12 +79,22 @@ NSArray *filteredBookArray;
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _myBookArray = [_bookManager getBooks: [self bookState] andSearchText:@""];
+    
+    [_tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
+    
+    _tableView = tableView;
+    
     return 1;
 }
 
@@ -95,6 +106,7 @@ NSArray *filteredBookArray;
         return [filteredBookArray count];
     else
         return [_myBookArray count];
+    
 }
 
 
@@ -176,7 +188,7 @@ NSArray *filteredBookArray;
 
 -(IBAction)unwindMyBookSearchController:(UIStoryboardSegue *)unwindSegue
 {
-    
+
 }
 
 
