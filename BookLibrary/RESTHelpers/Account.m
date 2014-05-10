@@ -39,7 +39,7 @@ NSUserDefaults *_defaults;
 -(NSString *)getRegistrationParams:(User *)user
 {
     NSString *params;
-    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password_digest=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
+    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
     return params;
 }
 

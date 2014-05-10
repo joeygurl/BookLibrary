@@ -40,6 +40,7 @@
     [request setURL:fromURL];
     [request setHTTPMethod:method];
     [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     //init response
     NSHTTPURLResponse *response = nil;
