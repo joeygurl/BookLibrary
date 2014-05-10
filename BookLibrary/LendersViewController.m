@@ -73,7 +73,7 @@ BOOL _isMyBook;
      User *user = nil;
     if (_lenderArray != nil) {
         user = [_lenderArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@,%@", user.lastName, user.firstName];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
         cell.detailTextLabel.text = user.cityState;
     }
     
