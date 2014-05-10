@@ -264,7 +264,7 @@ NSUserDefaults *_defaults;
                 book.loanDetail.borrower = [[User alloc]init];
                 book.loanDetail.borrower.firstName = [borrowerDictionary objectForKey:@"first_name"];
                 book.loanDetail.borrower.lastName = [borrowerDictionary objectForKey:@"last_name"];
-                book.loanDetail.requestedDate = [borrowerDictionary objectForKey:@"requested_at"];
+                book.loanDetail.requestedDate = [retBook objectForKey:@"requested_at"];
                 book.loanDetail.lentDate = [retBook objectForKey:@"lent_at"];
             }
             

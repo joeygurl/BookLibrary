@@ -75,7 +75,7 @@ Book *_book;
             
             [self.dateLabelCaption setText:@"Requested On:"];
             
-            [self.dateLabel setText:[formatter stringFromDate:bookDetailTabController.bookDetail.loanDetail.requestedDate]];
+            [self.dateLabel setText:[NSString stringWithFormat:@"%@", bookDetailTabController.bookDetail.loanDetail.requestedDate]];
             
             [self.topButton setTitle:@"Lend" forState:UIControlStateNormal];
             [self.bottomButton setTitle:@"Deny" forState:UIControlStateNormal];
