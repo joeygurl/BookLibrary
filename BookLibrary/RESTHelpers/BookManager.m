@@ -15,6 +15,7 @@ RESTService *_restService;
 NSString *_googleBooksServiceURL;
 NSString *_appyDaysServiceURL;
 NSString *_authorizationQueryString;
+NSString *_authorizationQueryStringWithoutUserId;
 NSUserDefaults *_defaults;
 
 -(id)init
@@ -24,6 +25,7 @@ NSUserDefaults *_defaults;
     _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api";
     _defaults = [NSUserDefaults standardUserDefaults];
     _authorizationQueryString = [NSString stringWithFormat:@"access_token=%@&user_id=%@",[_defaults valueForKey:@"ACCESS_TOKEN"], [_defaults valueForKey:@"USERID"]];
+    _authorizationQueryStringWithoutUserId = [NSString stringWithFormat:@"access_token=%@",[_defaults valueForKey:@"ACCESS_TOKEN"]];
     return self;
 }
 
@@ -171,6 +173,7 @@ NSUserDefaults *_defaults;
 {
     NSString *queryString = @"";
     NSString *s_url = @"";
+    NSString *auth = _authorizationQueryString;
     switch (bookState) {
         case MY_BOOKS:
             s_url=@"/book_instances.json";
@@ -179,6 +182,7 @@ NSUserDefaults *_defaults;
         {
             s_url=@"/book_instances.json";
             queryString = [NSString stringWithFormat:@"&search_text=%@",[searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            auth = _authorizationQueryStringWithoutUserId;
             break;
         }
         case LOANED_BOOKS:
@@ -194,7 +198,7 @@ NSUserDefaults *_defaults;
             break;
     }
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, auth, queryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     NSMutableArray *bookList= [[NSMutableArray alloc]init];
     
