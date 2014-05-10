@@ -240,21 +240,20 @@ NSUserDefaults *_defaults;
 
 -(NSMutableArray *) getLenders:(Book *)forBook
 {
-    NSString *queryString =[NSString stringWithFormat:@"search_text=%@",forBook.title];
-    NSString *s_url = @"/book_instances.json";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
+    NSString *s_url = [NSURL URLWithString:[NSString stringWithFormat:@"/books/%d/lenders.json", forBook.bookId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     
-    NSArray *userArray = [response.responseDictionary objectForKey:@("user")];
     NSMutableArray *lenderList= [[NSMutableArray alloc]init];
     
     //parse dictionary
-    for(NSDictionary *retUser in userArray){
+    for(NSDictionary *bookInstance in response.responseDictionary){
+        NSDictionary *retUser = [bookInstance objectForKey:@"user"];
         //create lender object & init
         User  *user = [[User alloc] init];
         user.firstName = [retUser objectForKey:@"first_name"];
         user.lastName = [retUser objectForKey:@"last_name"];
-        user.userId =[[response.responseDictionary objectForKey:@("user_id")] integerValue];
+        user.userId =[[bookInstance objectForKey:@("user_id")] integerValue];
         
         //add user object to lender list
         [lenderList addObject:user];
