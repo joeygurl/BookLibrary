@@ -96,7 +96,7 @@ NSUserDefaults *_defaults;
 {
     NSString *s_url = @"/reviews.json";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
-    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getBookParams:book andOwner:[NSString stringWithFormat:@"%@",[_defaults valueForKey:@"USERID"]]]];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getReviewParams:book]];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
         return @"Review added for book.";
     else
