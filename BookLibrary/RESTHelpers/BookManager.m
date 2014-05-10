@@ -71,6 +71,7 @@ NSUserDefaults *_defaults;
 
 -(NSString *)requestLoan: (Book *)book
 {
+    book.bId = book.lender.bookInstanceId;
     NSString *s_url = @"/loans/request.json";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getRequestParams:book]];
@@ -296,6 +297,7 @@ NSUserDefaults *_defaults;
         user.lastName = [retUser objectForKey:@"last_name"];
         user.cityState = [retUser objectForKey:@"city_state_str"];
         user.userId =[[bookInstance objectForKey:@("user_id")] integerValue];
+        user.bookInstanceId = [[bookInstance objectForKey:@"id"] integerValue];
         
         //add user object to lender list
         [lenderList addObject:user];

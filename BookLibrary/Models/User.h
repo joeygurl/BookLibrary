@@ -16,5 +16,6 @@
 @property NSString *cityState;
 @property NSString *emailAddress;
 @property NSString *password;
+@property int bookInstanceId;
 
 @end
