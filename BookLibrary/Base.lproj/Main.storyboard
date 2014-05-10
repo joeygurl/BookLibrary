@@ -872,7 +872,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.60392159219999997" green="0.83921575550000005" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Book Details" id="Mma-ao-t8L"/>
+                    <tabBarItem key="tabBarItem" title="Book Details" image="1399750478_book_text_information.png" id="Mma-ao-t8L"/>
                     <navigationItem key="navigationItem" title="Book Details" id="zbX-bT-uwH"/>
                     <connections>
                         <outlet property="authorLabel" destination="Cb3-8N-KN7" id="7s5-0K-nYX"/>
@@ -1032,7 +1032,7 @@
                             <outlet property="delegate" destination="PnV-Qi-Gqy" id="aLs-zg-yVl"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Ratings/Reviews" id="eEa-C6-pdu"/>
+                    <tabBarItem key="tabBarItem" title="Ratings/Reviews" image="reviews.png" id="eEa-C6-pdu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJK-gk-tX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1082,7 +1082,7 @@
                             <outlet property="delegate" destination="rs0-qy-U2b" id="Wb8-0B-OrY"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Lenders" id="gkH-i3-SPc"/>
+                    <tabBarItem key="tabBarItem" title="Lenders" image="1399750695_user_info.png" id="gkH-i3-SPc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxn-qY-8er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1376,7 +1376,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1399750478_book_text_information.png" width="30" height="30"/>
+        <image name="1399750695_user_info.png" width="30" height="30"/>
         <image name="Library-icon.png" width="120" height="120"/>
+        <image name="reviews.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

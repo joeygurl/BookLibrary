@@ -29,6 +29,10 @@
 		E3656A581904826C0084A562 /* MyLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A561904826C0084A562 /* MyLibrary.m */; };
 		E3656A5E1905642A0084A562 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = E3656A5D1905642A0084A562 /* Book.m */; };
 		E366131B1919C27F00858E19 /* ResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E366131A1919C27F00858E19 /* ResponseObject.m */; };
+		E37A186D191E6F95002829CD /* reviews.png in Resources */ = {isa = PBXBuildFile; fileRef = E37A186C191E6F95002829CD /* reviews.png */; };
+		E37A186F191E70A4002829CD /* 1399750478_book_text_information.png in Resources */ = {isa = PBXBuildFile; fileRef = E37A186E191E70A4002829CD /* 1399750478_book_text_information.png */; };
+		E37A1871191E7124002829CD /* 1399750591_66913.ico in Resources */ = {isa = PBXBuildFile; fileRef = E37A1870191E7124002829CD /* 1399750591_66913.ico */; };
+		E37A1873191E7187002829CD /* 1399750695_user_info.png in Resources */ = {isa = PBXBuildFile; fileRef = E37A1872191E7187002829CD /* 1399750695_user_info.png */; };
 		E38ACB2918FCDB48002C110D /* BookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2818FCDB48002C110D /* BookSearch.m */; };
 		E38ACB2D18FCDD99002C110D /* MyBookSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB2C18FCDD99002C110D /* MyBookSearch.m */; };
 		E38ACB3318FCE707002C110D /* BookDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E38ACB3218FCE707002C110D /* BookDetails.m */; };
@@ -92,6 +96,10 @@
 		E3656A5D1905642A0084A562 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Book.m; path = Models/Book.m; sourceTree = "<group>"; };
 		E36613191919C27F00858E19 /* ResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResponseObject.h; path = RESTHelpers/ResponseObject.h; sourceTree = "<group>"; };
 		E366131A1919C27F00858E19 /* ResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResponseObject.m; path = RESTHelpers/ResponseObject.m; sourceTree = "<group>"; };
+		E37A186C191E6F95002829CD /* reviews.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviews.png; sourceTree = "<group>"; };
+		E37A186E191E70A4002829CD /* 1399750478_book_text_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1399750478_book_text_information.png; sourceTree = "<group>"; };
+		E37A1870191E7124002829CD /* 1399750591_66913.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = 1399750591_66913.ico; sourceTree = "<group>"; };
+		E37A1872191E7187002829CD /* 1399750695_user_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1399750695_user_info.png; sourceTree = "<group>"; };
 		E38ACB2718FCDB48002C110D /* BookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearch.h; sourceTree = "<group>"; };
 		E38ACB2818FCDB48002C110D /* BookSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearch.m; sourceTree = "<group>"; };
 		E38ACB2B18FCDD99002C110D /* MyBookSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookSearch.h; sourceTree = "<group>"; };
@@ -226,6 +234,10 @@
 		E308DB3918F986E6005AA4D7 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				E37A1872191E7187002829CD /* 1399750695_user_info.png */,
+				E37A1870191E7124002829CD /* 1399750591_66913.ico */,
+				E37A186E191E70A4002829CD /* 1399750478_book_text_information.png */,
+				E37A186C191E6F95002829CD /* reviews.png */,
 				E3D9E25B191E638100CF97FA /* splash2.png */,
 				E3FA1611191E617400AD4CEC /* Library-icon.png */,
 				E308DB3A18F986E6005AA4D7 /* dropdown.png */,
@@ -379,7 +391,11 @@
 				E308DB1D18F98618005AA4D7 /* Images.xcassets in Resources */,
 				E3D9E25C191E638100CF97FA /* splash2.png in Resources */,
 				E308DB0F18F98618005AA4D7 /* InfoPlist.strings in Resources */,
+				E37A186D191E6F95002829CD /* reviews.png in Resources */,
+				E37A1873191E7187002829CD /* 1399750695_user_info.png in Resources */,
+				E37A1871191E7124002829CD /* 1399750591_66913.ico in Resources */,
 				E308DB1818F98618005AA4D7 /* Main.storyboard in Resources */,
+				E37A186F191E70A4002829CD /* 1399750478_book_text_information.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
