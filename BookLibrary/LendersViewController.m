@@ -9,6 +9,7 @@
 #import "LendersViewController.h"
 #import "BookDetailTabController.h"
 #import "User.h"
+#import "LenderDetails.h"
 
 @interface LendersViewController()
 {
@@ -20,6 +21,7 @@
 
 @implementation LendersViewController
 BOOL _isMyBook;
+@synthesize bookDetails;
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -33,6 +35,7 @@ BOOL _isMyBook;
     
     _bookManager = [[BookManager alloc] init];
     _lenderArray = [_bookManager getLenders: bookDetailTabController.bookDetail];
+    bookDetails = bookDetailTabController.bookDetail;
     
 }
 
@@ -84,7 +87,7 @@ BOOL _isMyBook;
     return NO;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -92,7 +95,11 @@ BOOL _isMyBook;
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    LenderDetails *lenderDetails = segue.destinationViewController;
+    lenderDetails.bookDetail = bookDetails;
+    lenderDetails.bookDetail.lender = [_lenderArray objectAtIndex:indexPath.row];
 }
-*/
+
 
 @end

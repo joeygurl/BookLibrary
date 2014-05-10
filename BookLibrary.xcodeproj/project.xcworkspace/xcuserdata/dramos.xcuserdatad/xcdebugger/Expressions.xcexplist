@@ -3,26 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[MyBookSearch tableView:cellForRowAtIndexPath:]:MyBookSearch.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[MyBookSearch tableView:numberOfRowsInSection:]:MyBookSearch.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[_myBookArray count]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[BookDetailTabController viewDidLoad]:BookDetailTabController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.tabBarController.viewControllers">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[MyBookDetailsTab setBookDetail:]:MyBookDetailsTab.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[Account signIn:]:Account.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[defaults objectForKey:@&quot;ACCESS_TOKEN&quot;]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[BookSearch prepareForSegue:sender:]:BookSearch.m">
@@ -36,6 +25,14 @@
          contextName = "-[MyBookDetails viewDidLoad]:MyBookDetails.m">
       </ContextState>
       <ContextState
+         contextName = "-[BookDetailTabController viewDidLoad]:BookDetailTabController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tabBarController.viewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[BookManager getBooks:]:BookManager.m">
          <PersistentStrings>
             <PersistentString
@@ -44,21 +41,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[Account signIn:]:Account.m">
+         contextName = "-[MyBookDetails configureView]:MyBookDetails.m">
          <PersistentStrings>
             <PersistentString
-               value = "[defaults objectForKey:@&quot;ACCESS_TOKEN&quot;]">
+               value = "myBookDetailsTab.labelString">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[Registration RegistrationClicked:]:Registration.m">
+         contextName = "-[MyBookSearch tableView:numberOfRowsInSection:]:MyBookSearch.m">
          <PersistentStrings>
             <PersistentString
-               value = "txtPassword.text">
+               value = "[_myBookArray count]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[BookDetails configureView]:BookDetails.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dateLabel.text">
             </PersistentString>
             <PersistentString
-               value = "txtConfirmPassword.text">
+               value = "bookDetailTabController.bookDetail.loanDetail.lentDate">
+            </PersistentString>
+            <PersistentString
+               value = "[formatter stringFromDate:bookDetailTabController.bookDetail.loanDetail.lentDate]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -74,10 +82,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[MyBookDetails configureView]:MyBookDetails.m">
+         contextName = "-[MyBookSearch tableView:cellForRowAtIndexPath:]:MyBookSearch.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[Registration RegistrationClicked:]:Registration.m">
          <PersistentStrings>
             <PersistentString
-               value = "myBookDetailsTab.labelString">
+               value = "txtPassword.text">
+            </PersistentString>
+            <PersistentString
+               value = "txtConfirmPassword.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

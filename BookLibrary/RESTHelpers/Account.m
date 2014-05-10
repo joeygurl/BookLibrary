@@ -39,7 +39,7 @@ NSUserDefaults *_defaults;
 -(NSString *)getRegistrationParams:(User *)user
 {
     NSString *params;
-    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password_digest=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
+    params=[NSString stringWithFormat:@"first_name=%@&last_name=%@&email=%@&password=%@&city_state_str=%@", user.firstName, user.lastName, user.emailAddress, user.password, user.cityState];
     return params;
 }
 
@@ -70,7 +70,7 @@ NSUserDefaults *_defaults;
 -(BOOL) updateProfile:(User *) user
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://booklibraryapi.herokuapp.com/api/users/%@.json",[_defaults valueForKey:@"USERID"]]];
-    NSString *params = [NSString stringWithFormat:@"%@&%@",_authorizationQueryString, [self getRegistrationParams:user]];
+    NSString *params = [NSString stringWithFormat:@"%@&%@&id=%@",_authorizationQueryString, [self getRegistrationParams:user],[_defaults valueForKey:@"USERID"]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"PUT" andBody:params];
     if([response.response statusCode] >=200 && [response.response statusCode] < 300)
         return YES;
@@ -80,7 +80,7 @@ NSUserDefaults *_defaults;
 
 -(BOOL) passwordReset:(User *) user
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://booklibraryapi.herokuapp.com/api/users/%@.json",[_defaults valueForKey:@"USERID"]]];
+    NSURL *url = [NSURL URLWithString:@"http://booklibraryapi.herokuapp.com/api/users/send_password_reset.json"];
     NSString *params = [NSString stringWithFormat:@"%@&email_address%@",_authorizationQueryString, [user emailAddress]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:params];
     if([response.response statusCode] >=200 && [response.response statusCode] < 300)

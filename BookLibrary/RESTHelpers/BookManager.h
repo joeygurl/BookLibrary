@@ -28,6 +28,7 @@ typedef enum
 -(NSString *)add:(Book *)book;
 -(NSString *)remove:(Book *)book;
 -(NSString *)markReturned:(Book *)book;
+-(NSString *)requestLoan: (Book *)book;
 -(NSString *)approveLoan: (Book *)book;
 -(NSString *)denyLoan: (Book *)book;
 -(NSString *)addReview:(Book *)book;

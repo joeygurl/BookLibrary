@@ -15,6 +15,7 @@ RESTService *_restService;
 NSString *_googleBooksServiceURL;
 NSString *_appyDaysServiceURL;
 NSString *_authorizationQueryString;
+NSString *_accessToken;
 NSUserDefaults *_defaults;
 
 -(id)init
@@ -24,6 +25,7 @@ NSUserDefaults *_defaults;
     _appyDaysServiceURL = @"http://booklibraryapi.herokuapp.com/api";
     _defaults = [NSUserDefaults standardUserDefaults];
     _authorizationQueryString = [NSString stringWithFormat:@"access_token=%@&user_id=%@",[_defaults valueForKey:@"ACCESS_TOKEN"], [_defaults valueForKey:@"USERID"]];
+    _accessToken =[_defaults valueForKey:@"ACCESS_TOKEN"];
     return self;
 }
 
@@ -58,9 +60,8 @@ NSUserDefaults *_defaults;
 
 -(NSString *)markReturned:(Book *)book
 {
-    NSString *queryString = @"";
     NSString *s_url = [NSString stringWithFormat:@"/loans/%i/return.json", book.loanDetail.loanId];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
     ResponseObject *response  = [_restService getResponse:url withMethod:@"POST"];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
         return @"Book marked as returned.";
@@ -68,11 +69,28 @@ NSUserDefaults *_defaults;
         return @"Failed to mark book as returned, try again later.";
 }
 
+-(NSString *)requestLoan: (Book *)book
+{
+    NSString *s_url = @"/loans/request.json";
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
+    ResponseObject *response = [_restService getResponse:url withMethod:@"POST" andBody:[self getRequestParams:book]];
+    if ([response.response statusCode] >=200 && [response.response statusCode] <300)
+        return @"Loan request";
+    else
+        return @"Failed to request loan, try again later.";
+}
+
+-(NSString *)getRequestParams:(Book *)book
+{
+    NSString *params;
+    params=[NSString stringWithFormat:@"book_instance_id=%i&user_id=%@", book.bId, [_defaults valueForKey:@"USERID"]];
+    return params;
+}
+
 -(NSString *)approveLoan: (Book *)book
 {
-    NSString *queryString = @"";
     NSString *s_url = [NSString stringWithFormat:@"/loans/%i/approve.json", book.loanDetail.loanId];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"POST"];
     if ([response.response statusCode] >=200 && [response.response statusCode] <300)
         return @"Book marked as loaned.";
@@ -194,7 +212,12 @@ NSUserDefaults *_defaults;
             break;
     }
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
+    NSURL *url;
+    if(bookState==BORROW_A_BOOK)
+        url= [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?access_token=%@&%@",_appyDaysServiceURL,s_url, _accessToken, queryString]];
+    
+    else
+        url= [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
     ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     NSMutableArray *bookList= [[NSMutableArray alloc]init];
     
@@ -211,13 +234,14 @@ NSUserDefaults *_defaults;
         book.bId = [[retBook objectForKey:@"id"] integerValue];
         book.bookId = [[retBook objectForKey:@"book_id"] integerValue];
         
-        NSDictionary *ownerDictionary = [retBook objectForKey:@"user"];
+        NSDictionary *ownerDictionary = [retBook objectForKey:@"lender"];
         book.lender =  [[User alloc]init];
         book.lender.firstName = [ownerDictionary objectForKey:@"first_name"];
         book.lender.lastName = [ownerDictionary objectForKey:@"last_name"];
         book.lender.cityState =[ownerDictionary objectForKey:@"city_state_str"];
+       
         
-        if (bookState==PENDING_REQUEST_BOOKS || bookState==LOANED_BOOKS) {
+        if (bookState==PENDING_REQUEST_BOOKS || bookState==LOANED_BOOKS || bookState==BORROWED_BOOKS) {
             NSDictionary *borrowerDictionary = [retBook objectForKey:@"borrower"];
             book.loanDetail = [[LoanDetail alloc]init];
             book.loanDetail.loanId=[[retBook objectForKey:@"id"] integerValue];
@@ -225,7 +249,7 @@ NSUserDefaults *_defaults;
             book.loanDetail.borrower.firstName = [borrowerDictionary objectForKey:@"first_name"];
             book.loanDetail.borrower.lastName = [borrowerDictionary objectForKey:@"last_name"];
             book.loanDetail.requestedDate = [borrowerDictionary objectForKey:@"requested_at"];
-            book.loanDetail.lentDate = [borrowerDictionary objectForKey:@"lent_at"];
+            book.loanDetail.lentDate = [retBook objectForKey:@"lent_at"];
         }
         
         //add book object to contact array
@@ -236,26 +260,28 @@ NSUserDefaults *_defaults;
 
 -(NSMutableArray *) getLenders:(Book *)forBook
 {
-    NSString *queryString =[NSString stringWithFormat:@"search_text=%@",forBook.title];
-    NSString *s_url = @"/book_instances.json";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@&%@",_appyDaysServiceURL,s_url, _authorizationQueryString, queryString]];
-    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
+    NSString *s_url = [NSURL URLWithString:[NSString stringWithFormat:@"/books/%d/lenders.json", forBook.bookId]];
     
-    NSArray *userArray = [response.responseDictionary objectForKey:@("user")];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@",_appyDaysServiceURL,s_url, _authorizationQueryString]];
+    
+    ResponseObject *response = [_restService getResponse:url withMethod:@"GET"];
     NSMutableArray *lenderList= [[NSMutableArray alloc]init];
     
     //parse dictionary
-    for(NSDictionary *retUser in userArray){
+    for(NSDictionary *bookInstance in response.responseDictionary){
+        NSDictionary *retUser = [bookInstance objectForKey:@"user"];
         //create lender object & init
         User  *user = [[User alloc] init];
         user.firstName = [retUser objectForKey:@"first_name"];
         user.lastName = [retUser objectForKey:@"last_name"];
-        user.userId =[[response.responseDictionary objectForKey:@("user_id")] integerValue];
+        user.userId =[[bookInstance objectForKey:@("user_id")] integerValue];
         
         //add user object to lender list
         [lenderList addObject:user];
+        
     }
-
+    
+    
     return lenderList;
 }
 
